@@ -1,0 +1,33 @@
+ command line:
+   ./decodertest_vhd_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  55130
+
+Wed Feb 01 23:03:20 2017
+
+Total Line Count : 32
+
+ Elaboration time : 0 sec.
+
+ Estimate current memory usage : 155.619 Meg. 
+
+ Total Signals          : 6
+ Total Nets             : 21
+ Total Signal Drivers   : 3
+ Total Blocks           : 6
+ Total Primitive Blocks : 1
+ Total Processes        : 2
+ Total Traceable Variables  : 0
+ Total Scalar Nets and Variables : 21
+ntrace select -o on -n /decodertest_vhd/en 
+ntrace select -o on -n /decodertest_vhd/enc 
+ntrace select -o on -n /decodertest_vhd/dec 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+WARNING:Simulator:29 - at 100.000 ns: Warning: There is an 'U'|'X'|'W'|'Z'|'-'
+   in an arithmetic operand, the result will be 'X'(es).
+WARNING:Simulator:29 - at 100.000 ns: Warning: CONV_INTEGER: There is an
+   'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.

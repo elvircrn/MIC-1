@@ -1,0 +1,17 @@
+V3 7
+FL C:/Users/elvircrn/Documents/codes2/80085/80085/DEC4x16.vhd 2017/02/01.22:58:56 J.36
+EN work/DEC4x16 1485986487 \
+      FL C:/Users/elvircrn/Documents/codes2/80085/80085/DEC4x16.vhd \
+      PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
+      PB ieee/STD_LOGIC_UNSIGNED 1179176991 PB ieee/NUMERIC_STD 1179176997
+AR work/DEC4x16/Behavioral 1485986488 \
+      FL C:/Users/elvircrn/Documents/codes2/80085/80085/DEC4x16.vhd \
+      EN work/DEC4x16 1485986487
+FL C:/Users/elvircrn/Documents/codes2/80085/80085/decodertest.vhd 2017/02/01.23:02:37 J.36
+EN work/decodertest_vhd 1485986577 \
+      FL C:/Users/elvircrn/Documents/codes2/80085/80085/decodertest.vhd \
+      PB ieee/std_logic_1164 1179176983 PB ieee/STD_LOGIC_UNSIGNED 1179176991 \
+      PB ieee/NUMERIC_STD 1179176997
+AR work/decodertest_vhd/behavior 1485986578 \
+      FL C:/Users/elvircrn/Documents/codes2/80085/80085/decodertest.vhd \
+      EN work/decodertest_vhd 1485986577 CP DEC4x16
