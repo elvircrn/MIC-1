@@ -31,29 +31,16 @@ USE ieee.numeric_std.ALL;
 
 entity ROM256x32 is
   port ( address : in std_logic_vector(7 downto 0);
-         data : out std_logic_vector(4 downto 0) );
+         data : out std_logic_vector(31 downto 0) );
 end entity ROM256x32;
 
 architecture behavioral of ROM256x32 is
-  type mem is array ( 0 to 2**8 - 1) of std_logic_vector(4 downto 0);
+  type mem is array ( 0 to 2**8 - 1) of std_logic_vector(31 downto 0);
   constant my_Rom : mem := (
-    0  => "00000",
-    1  => "00001",
-    2  => "00010",
-    3  => "00011",
-    4  => "00000",
-    5  => "11000",
-    6  => "11000",
-    7  => "11000",
-    8  => "11000",
-    9  => "11000",
-    10 => "11000",
-    11 => "11000",
-    12 => "11000",
-    13 => "11000",
-    14 => "11000",
-    15 => "11000",
-	 others => "00000");
+    0  => "000000000000000000000000000000000000000000",
+    1  => "000010000100001000010000100001000010000100",
+    2  => "000100001000010000100001000010000100001000",
+	 others => "000000000000000000000000000000000000000000");
 begin
    process (address)
    begin
