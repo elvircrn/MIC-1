@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    10:26:01 01/05/2017 
+-- Create Date:    22:17:02 02/01/2017 
 -- Design Name: 
--- Module Name:    shifter16 - Behavioral 
+-- Module Name:    mseq - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -27,24 +27,20 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity shifter16 is
-  port ( data_in : in bit_vector(15 downto 0);
-			s0 : in std_logic;
-			s1 : in std_logic;
-         data_out : out bit_vector(15 downto 0) );
-end shifter16;
+entity mseq is
+	port(
+		cond : in std_logic_vector(1 downto 0);
+		n, z : in std_logic;
+		seq_out : out std_logic
+	);
+end mseq;
 
-architecture Behavioral of shifter16 is
+architecture Behavioral of mseq is
 
 begin
-	process(data_in, s0, s1)
-   begin
-		if s0 = '0' and s1 = '1' then
-			data_out <= data_in srl 1;
-		elsif s0 = '1' and s1 = '0' then
-			data_out <= data_in sll 1;
-		end if;
-   end process;
-
+	
+	seq_out <= (cond(1) and cond(0)) or 
+		(cond(0) and n) or
+		(cond(1) and z);
 end Behavioral;
 

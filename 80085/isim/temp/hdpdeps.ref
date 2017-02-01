@@ -1,4 +1,4 @@
-V3 7
+V3 10
 FL C:/Users/elvircrn/Documents/codes2/80085/80085/DEC4x16.vhd 2017/02/01.22:58:56 J.36
 EN isim_temp/DEC4x16 1485986567 \
       FL C:/Users/elvircrn/Documents/codes2/80085/80085/DEC4x16.vhd \
@@ -15,3 +15,11 @@ EN isim_temp/decodertest_vhd 1485986569 \
 AR isim_temp/decodertest_vhd/behavior 1485986570 \
       FL C:/Users/elvircrn/Documents/codes2/80085/80085/decodertest.vhd \
       EN isim_temp/decodertest_vhd 1485986569 CP DEC4x16
+FL C:/Users/elvircrn/Documents/codes2/80085/80085/shifter16.vhd 2017/02/01.23:24:03 J.36
+EN isim_temp/shifter16 1485987848 \
+      FL C:/Users/elvircrn/Documents/codes2/80085/80085/shifter16.vhd \
+      PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
+      PB ieee/STD_LOGIC_UNSIGNED 1179176991
+AR isim_temp/shifter16/Behavioral 1485987849 \
+      FL C:/Users/elvircrn/Documents/codes2/80085/80085/shifter16.vhd \
+      EN isim_temp/shifter16 1485987848
