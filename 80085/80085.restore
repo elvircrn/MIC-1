@@ -702,9 +702,9 @@ proc RestoreSourceControlOptions { prjfile istream } {
 
 # Call this proc to restore the ISE project.
 proc restore { { project_dir "" } } {
-   set script_file "CPU.restore"
-   set project_file "CPU.ise"
-   set backup_file "CPU.fail"
+   set script_file "80085.restore"
+   set project_file "80085.ise"
+   set backup_file "80085.fail"
    set old_working_dir [pwd]
    # Make sure a project isn't already open.
    if {[IsProjectOpen]} {
@@ -763,7 +763,13 @@ proc restore { { project_dir "" } } {
     RestoreProjectSettings $iProjHelper $project_settings 
   } "A problem occured while restoring project settings."
 
-  set user_files {}
+  set user_files { 
+      "ROM256x32.vhd" 
+      "alu.vhd" 
+      "cpu.vhd" 
+      "hex2u1mux.vhd" 
+      "oct2to1mux.vhd" 
+      "shifter16.vhd"}
 
   HandleException {
     AddUserFiles $iProjHelper $user_files
@@ -787,7 +793,7 @@ proc restore { { project_dir "" } } {
       "A" "" "" "" "PROP_CompxlibOverwriteLib" "Overwrite" 
       "A" "" "" "" "PROP_CompxlibSimPrimatives" "true" 
       "A" "" "" "" "PROP_CreateIBISModelVCCIO_xc9500xl" "LVTTL" 
-      "A" "" "" "" "PROP_DesignName" "CPU" 
+      "A" "" "" "" "PROP_DesignName" "80085" 
       "A" "" "" "" "PROP_Dummy" "dum1" 
       "A" "" "" "" "PROP_EnableWYSIWYG" "None" 
       "A" "" "" "" "PROP_Enable_Incremental_Messaging" "false" 
