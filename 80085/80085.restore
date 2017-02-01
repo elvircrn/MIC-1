@@ -768,6 +768,7 @@ proc restore { { project_dir "" } } {
       "ROM256x32.vhd" 
       "alu.vhd" 
       "cpu.vhd" 
+      "distributer.vhd" 
       "hex2u1mux.vhd" 
       "oct2to1mux.vhd" 
       "shifter16.vhd"}
