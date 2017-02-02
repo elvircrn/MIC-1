@@ -29,10 +29,10 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity ALU is
         port (
-                x1, x2 : in std_logic_vector(15 downto 0);
-                f0, f1 : in std_logic;
-                y0 : out std_logic_vector(15 downto 0);
-                z, n : out std_logic
+				 x1, x2 : in std_logic_vector(15 downto 0);
+				 f0, f1 : in std_logic;
+				 y0 : out std_logic_vector(15 downto 0);
+				 z, n : out std_logic
         );
 end ALU;
 
