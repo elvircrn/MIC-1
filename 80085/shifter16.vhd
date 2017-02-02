@@ -43,6 +43,8 @@ begin
 			data_out <= to_stdlogicvector(to_bitvector (data_in) srl 1);
 		elsif s0 = '1' and s1 = '0' then
 			data_out <= to_stdlogicvector (to_bitvector (data_in) sll 1);
+		else 
+			data_out <= data_in;
 		end if;
    end process;
 

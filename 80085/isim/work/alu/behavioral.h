@@ -24,7 +24,6 @@ public:
 
     HSim__s1 SE[7];
 
-    HSim__s1 SA[1];
     Work_alu_behavioral(const char * name);
     ~Work_alu_behavioral();
     void constructObject();

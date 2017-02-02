@@ -12,7 +12,7 @@ entity distributer is
 end distributer;
 
 architecture Behavioral of distributer is
-	signal temp: std_logic_vector(1 downto 0);
+	signal temp: std_logic_vector(1 downto 0) := "00";
 begin
 
 	process(clk)

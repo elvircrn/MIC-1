@@ -27,23 +27,18 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
---Korak 1
-
 entity cpu is
     port (
              clk : in std_logic;
              reset : in std_logic;
              adresa : out std_logic_vector (11 downto 0);
              podaci : inout std_logic_vector (15 downto 0);
--- preko signal podaci procesor ?alje ili dobavlja podatke od U/I ure?aja
              rd : out std_logic;
              wr : out std_logic
          );
 end cpu;
 
 architecture Behavioral of cpu is
-
-
 
 signal s_mpc_reg : std_logic_vector (7 downto 0) :=x"00";
 signal s_mir_reg : std_logic_vector (31 downto 0);
@@ -66,7 +61,7 @@ signal s_c_bus : std_logic_vector(15 downto 0);
 signal s_seq_out : std_logic;
 signal s_mmux_out : std_logic_vector(7 downto 0);
 
---Korak 5
+--Registri
 signal pc : std_logic_vector (15 downto 0) := x"0000";
 signal ac : std_logic_vector (15 downto 0) := x"0000";
 signal sp : std_logic_vector (15 downto 0) := x"0000";
@@ -155,7 +150,16 @@ end component;
 
 begin
 
-p_fazni_sat : distributer port map (clk, reset, s_t4, s_t3, s_t2, s_t1);
+--TODO
+--Implementovati U/I komunikaciju
+--Koristiti reset za resetovanje registara
+--Testirati shifter
+--Testirati pisanje u mar i mbr
+--Testirati vise od jedne instrukcije
+--Testirati control flow
+
+--Mapiranje
+p_fazni_sat : distributer port map (clk, reset, s_t1, s_t2, s_t3, s_t4);
 rom : rom256x32 port map (s_mpc_out, s_rom_out);
 decoder_1 : decoder port map (s_a, '1', s_a_dek_out);
 decoder_2 : decoder port map (s_b, '1', s_b_dek_out);
@@ -166,9 +170,7 @@ p_mseq: mseq port map(s_cond, s_n, s_z, s_seq_out);
 mmux : oct2to1mux port map(s_mpc_out_inc, s_mir_adresa, s_mmux_out, s_seq_out);
 amux : hex2u1mux port map (s_a_latch, s_mbr_latch, s_amux_out, s_amux);
 
---Korak 2
- 
---Korak 3 
+--Ciklus 1
 process (s_t1, s_rom_out)
 	variable v_mir : std_logic_vector (31 downto 0);
 	begin
@@ -191,9 +193,7 @@ process (s_t1, s_rom_out)
 		s_mir <= v_mir;
 	end process;
 
---Korak 4
-
---Korak 6
+--Ciklus 2
 process(s_t2, s_a_dek_out, s_b_dek_out)
 begin
  if s_t2 = '1' then
@@ -217,7 +217,7 @@ begin
 	when "1000000000000000" => s_a_latch <= f;
 	when others => null;
  end case;
- case s_a_dek_out is
+ case s_b_dek_out is
 	when "0000000000000001" => s_b_latch <= pc;
 	when "0000000000000010" => s_b_latch <= ac;
 	when "0000000000000100" => s_b_latch <= sp;
@@ -239,20 +239,7 @@ begin
  end if;
 end process;
 
---amux
---process(s_mbr_latch, s_a_latch, s_amux)
---begin
---	if s_amux = '0' then
---	s_amux_out <= s_a_latch;
---	elsif s_amux = '1' then
---	s_amux_out <= s_mbr_latch;
---	end if;
---end process;
-
---Korak 8
--- alu
--- ?ifter
---Korak 9
+--Ciklus 3
 process(s_t3, s_b_latch, s_mar)
  variable v_mar_latch : std_logic_vector(11 downto 0);
 begin
@@ -263,18 +250,7 @@ begin
  s_mar_latch <= "0000" & v_mar_latch;
 end process;
 
-
---mmux
---process(s_seq_out, s_mpc_out_inc, s_mir_adresa)
---begin
--- if s_seq_out = '0' then
--- s_mmux_out <= s_mpc_out_inc;
--- elsif s_seq_out = '1' then
--- s_mmux_out <= s_mir_adresa;
--- end if;
---end process;
-
-
+--Ciklus 4
 process(s_t4, s_mbr, s_rd, s_wr, s_enc, s_c, s_c_bus, s_mmux_out)
  variable v_c_dek_out : std_logic_vector(15 downto 0);
 begin

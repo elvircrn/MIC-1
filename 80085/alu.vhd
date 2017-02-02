@@ -37,22 +37,22 @@ entity ALU is
 end ALU;
 
 architecture Behavioral of ALU is
-signal y : STD_LOGIC_VECTOR (15 downto 0);
 
 begin 
-process(x1, x2, f0)
+process(x1, x2, f0, f1)
+	variable y : std_logic_vector (15 downto 0);
 begin
 	if (f1 = '0' and f0 = '0') then
-		y <= (x1 + x2);
+		y := (x1 + x2);
 	elsif (f1 = '0' and f0 = '1') then
-		y <= (x1 and x2);
+		y := (x1 and x2);
 	elsif (f1 = '1' and f0 = '0') then
-		y <= x1;
+		y := x1;
 	else
-		y <= not x1;
+		y := not x1;
 	end if;
 
-z <= (y(0) or y(1) or y(2) or y(3) or y(4) 
+z <= not (y(0) or y(1) or y(2) or y(3) or y(4) 
 or y(5) or y(6) or y(7) or y(8) or y(9) 
 or y(10) or y(11) or y(12) or y(13) or y(14) 
 or y(15));
