@@ -1,4 +1,5 @@
 vhdl isim_temp "shifter16.vhd"
+vhdl isim_temp "registri.vhd"
 vhdl isim_temp "oct2to1mux.vhd"
 vhdl isim_temp "mseq.vhd"
 vhdl isim_temp "hex2u1mux.vhd"

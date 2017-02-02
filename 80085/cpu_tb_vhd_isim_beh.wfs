@@ -52,6 +52,7 @@ SIGNAL_ORDER_BEGIN
 /cpu_tb_vhd/uut/p_alu/f0
 /cpu_tb_vhd/uut/p_alu/f1
 /cpu_tb_vhd/uut/p_alu/y0
+/cpu_tb_vhd/uut/registers/sp
 SIGNAL_ORDER_END
 DIFFERENTIAL_CLKS_BEGIN
 DIFFERENTIAL_CLKS_END
@@ -140,6 +141,9 @@ SIGPROPS_BEGIN
 2
 2
 /cpu_tb_vhd/uut/p_alu/y0
+2
+2
+/cpu_tb_vhd/uut/registers/sp
 2
 2
 SIGPROPS_END

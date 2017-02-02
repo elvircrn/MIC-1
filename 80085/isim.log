@@ -2,24 +2,24 @@
    ./cpu_tb_vhd_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  52317
+     -ipcport  49859
 
-Thu Feb 02 21:58:29 2017
+Fri Feb 03 00:31:01 2017
 
-Total Line Count : 393
+Total Line Count : 407
 
- Elaboration time : 0 sec.
+ Elaboration time : 0.015625 sec.
 
- Estimate current memory usage : 155.75 Meg. 
+ Estimate current memory usage : 155.779 Meg. 
 
- Total Signals          : 114
- Total Nets             : 620
- Total Signal Drivers   : 56
+ Total Signals          : 118
+ Total Nets             : 622
+ Total Signal Drivers   : 55
  Total Blocks           : 17
  Total Primitive Blocks : 11
  Total Processes        : 16
  Total Traceable Variables  : 0
- Total Scalar Nets and Variables : 620
+ Total Scalar Nets and Variables : 622
 ntrace select -o on -n /cpu_tb_vhd/clk 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_rom_out 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t1 
@@ -48,6 +48,7 @@ ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/x2
 ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/f0 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/f1 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/y0 
+ntrace select -o on -n /cpu_tb_vhd/uut/registers/sp 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.
@@ -57,8 +58,4 @@ WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
    'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
    'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
-   'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 Finished circuit initialization process.
-ERROR:Simulator:29 - at 0 ns(1000) : Iteration limit is reached. Possible zero
-   delay oscillation.
