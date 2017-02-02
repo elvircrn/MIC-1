@@ -74,52 +74,20 @@ BEGIN
 
 	tb : PROCESS
 	BEGIN
+	
+	
+	
 
 		-- Wait 100 ns for global reset to finish
 		wait for 100 ns;
-
-		clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
-
-		clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
 		
-		clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
+		for i in 0 to 3 loop
+			clk <= '0';
+			wait for 1000 ns;
+			clk <= '1';
+			wait for 1000 ns;
+		end loop;
 		
-		clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
-		
-		--Jedna komanda gotova
-		
-		
-		clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
-
-		clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
-		
-		clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
-		
-		clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
 		
 		wait; -- will wait forever
 	END PROCESS;

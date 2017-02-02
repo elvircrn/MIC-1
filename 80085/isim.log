@@ -2,40 +2,44 @@
    ./cpu_tb_vhd_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  63482
+     -ipcport  52317
 
-Thu Feb 02 07:01:46 2017
+Thu Feb 02 21:58:29 2017
 
-Total Line Count : 400
+Total Line Count : 393
 
  Elaboration time : 0 sec.
 
- Estimate current memory usage : 155.718 Meg. 
+ Estimate current memory usage : 155.75 Meg. 
 
- Total Signals          : 106
+ Total Signals          : 114
  Total Nets             : 620
- Total Signal Drivers   : 53
- Total Blocks           : 16
- Total Primitive Blocks : 10
- Total Processes        : 15
+ Total Signal Drivers   : 56
+ Total Blocks           : 17
+ Total Primitive Blocks : 11
+ Total Processes        : 16
  Total Traceable Variables  : 0
  Total Scalar Nets and Variables : 620
 ntrace select -o on -n /cpu_tb_vhd/clk 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_rom_out 
+ntrace select -o on -n /cpu_tb_vhd/uut/s_t1 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t2 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t3 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t4 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_amux 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_alu 
+ntrace select -o on -n /cpu_tb_vhd/uut/s_enc 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_a 
+ntrace select -o on -n /cpu_tb_vhd/uut/s_mpc_out 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_a_dek_out 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_c_dek_out 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_a_latch 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_b_latch 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_amux_out 
+ntrace select -o on -n /cpu_tb_vhd/uut/s_mar_latch 
+ntrace select -o on -n /cpu_tb_vhd/uut/s_mbr_latch 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_alu_out 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_c_bus 
-ntrace select -o on -n /cpu_tb_vhd/uut/sp 
 ntrace select -o on -n /cpu_tb_vhd/uut/decoder_1/enc 
 ntrace select -o on -n /cpu_tb_vhd/uut/decoder_1/en 
 ntrace select -o on -n /cpu_tb_vhd/uut/decoder_1/dec 
@@ -44,11 +48,6 @@ ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/x2
 ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/f0 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/f1 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/y0 
-ntrace select -o on -n /cpu_tb_vhd/uut/s_t1 
-ntrace select -o on -n /cpu_tb_vhd/uut/s_enc 
-ntrace select -o on -n /cpu_tb_vhd/uut/s_mar_latch 
-ntrace select -o on -n /cpu_tb_vhd/uut/s_mbr_latch 
-ntrace select -o on -n /cpu_tb_vhd/uut/s_mpc_out 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.
@@ -61,11 +60,5 @@ WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
 WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
    'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 Finished circuit initialization process.
-isimrun 10000 ns 
-
- Simulation time 0.0625 sec.
-
- Estimate current memory usage : 162.267 Meg. 
-
-Thu Feb 02 07:06:13 2017
-
+ERROR:Simulator:29 - at 0 ns(1000) : Iteration limit is reached. Possible zero
+   delay oscillation.

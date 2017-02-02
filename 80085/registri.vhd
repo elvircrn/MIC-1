@@ -8,6 +8,7 @@ entity registri is
 		a_adr : in std_logic_vector (15 downto 0);
 		b_adr : in std_logic_vector (15 downto 0);
 		c_adr : in std_logic_vector (15 downto 0);
+		enc : in std_logic;
 		reset : in std_logic;
 		a_bus : out std_logic_vector (15 downto 0);
 		b_bus : out std_logic_vector (15 downto 0);
@@ -15,45 +16,30 @@ entity registri is
 	);
 end registri;
 
-	architecture Behavioral of registri is
-	signal pc : std_logic_vector (15 downto 0);
-	signal ac : std_logic_vector (15 downto 0);
-	signal sp : std_logic_vector (15 downto 0);
-	signal ir : std_logic_vector (15 downto 0);
-	signal tir : std_logic_vector (15 downto 0);
-	signal zero : std_logic_vector (15 downto 0) := x"0000" ;
-	signal p_one : std_logic_vector (15 downto 0) := x"0001";
-	signal n_one : std_logic_vector (15 downto 0) := x"1111";
-	signal amask : std_logic_vector (15 downto 0);
-	signal smask : std_logic_vector (15 downto 0);
-	signal a : std_logic_vector (15 downto 0);
-	signal b : std_logic_vector (15 downto 0);
-	signal c : std_logic_vector (15 downto 0);
-	signal d : std_logic_vector (15 downto 0);
-	signal e : std_logic_vector (15 downto 0);
-	signal f : std_logic_vector (15 downto 0);
+architecture Behavioral of registri is
+
+signal pc : std_logic_vector (15 downto 0) := x"0000";
+signal ac : std_logic_vector (15 downto 0) := x"0000";
+signal sp : std_logic_vector (15 downto 0) := x"0000";
+signal ir : std_logic_vector (15 downto 0) := x"0000";
+signal tir : std_logic_vector (15 downto 0) := x"0000";
+signal zero : std_logic_vector (15 downto 0) := x"0000";
+signal p_one : std_logic_vector (15 downto 0) := x"0001";
+signal n_one : std_logic_vector (15 downto 0) := x"FFFF";
+signal amask : std_logic_vector (15 downto 0) := x"0000";
+signal smask : std_logic_vector (15 downto 0) := x"0000";
+signal a : std_logic_vector (15 downto 0) := x"0000";
+signal b : std_logic_vector (15 downto 0) := x"0000";
+signal c : std_logic_vector (15 downto 0) := x"0000";
+signal d : std_logic_vector (15 downto 0) := x"0000";
+signal e : std_logic_vector (15 downto 0) := x"0000";
+signal f : std_logic_vector (15 downto 0) := x"0000";
+
 begin
-	process (a_adr, b_adr, c_adr, c_bus, reset)
+	process (a_adr, b_adr, c_adr, c_bus, reset, enc)
 	begin
-		-- reset
-		if (reset = '0') then
-			pc <= x"0000";
-			ac <= x"0000";
-			sp <= x"0000";
-			ir <= x"0000";
-			tir <= x"0000";
-			zero <= x"0000";
-			p_one <= x"0001";
-			n_one <= x"FFFF";
-			amask <= x"0000";
-			smask <= x"0000";
-			a <= x"0000";
-			b <= x"0000";
-			c <= x"0000";
-			d <= x"0000";
-			e <= x"0000";
-			f <= x"0000";
-		end if;
+	
+
 		-- iz registra na sabirnicu
 		case a_adr is
 			when "0000000000000001" => a_bus <= pc;
@@ -94,24 +80,27 @@ begin
 			when others => b_bus <= "ZZZZZZZZZZZZZZZZ";
 		end case;
 		-- sa sabirnice u registar
-		case c_adr is
-			when "0000000000000001" => pc <= c_bus;
-			when "0000000000000010" => ac <= c_bus;
-			when "0000000000000100" => sp <= c_bus;
-			when "0000000000001000" => ir <= c_bus;
-			when "0000000000010000" => tir <= c_bus;
-			when "0000000000100000" => zero <= zero;
-			when "0000000001000000" => p_one <= p_one;
-			when "0000000010000000" => n_one <= n_one;
-			when "0000000100000000" => amask <= c_bus;
-			when "0000001000000000" => smask <= c_bus;
-			when "0000010000000000" => a <= c_bus;
-			when "0000100000000000" => b <= c_bus;
-			when "0001000000000000" => c <= c_bus;
-			when "0010000000000000" => d <= c_bus;
-			when "0100000000000000" => e <= c_bus;
-			when "1000000000000000" => f <= c_bus;
-			when others => null;
-		end case;
+		
+		if (enc = '1') then
+			case c_adr is
+				when "0000000000000001" => pc <= c_bus;
+				when "0000000000000010" => ac <= c_bus;
+				when "0000000000000100" => sp <= c_bus;
+				when "0000000000001000" => ir <= c_bus;
+				when "0000000000010000" => tir <= c_bus;
+				when "0000000000100000" => zero <= zero;
+				when "0000000001000000" => p_one <= p_one;
+				when "0000000010000000" => n_one <= n_one;
+				when "0000000100000000" => amask <= c_bus;
+				when "0000001000000000" => smask <= c_bus;
+				when "0000010000000000" => a <= c_bus;
+				when "0000100000000000" => b <= c_bus;
+				when "0001000000000000" => c <= c_bus;
+				when "0010000000000000" => d <= c_bus;
+				when "0100000000000000" => e <= c_bus;
+				when "1000000000000000" => f <= c_bus;
+				when others => null;
+			end case;
+		end if;
 	end process;
 end Behavioral;

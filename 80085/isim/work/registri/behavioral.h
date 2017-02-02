@@ -10,8 +10,8 @@
 //  \___\/\___\
 ////////////////////////////////////////////////////////////////////////////////
 
-#ifndef H_Work_cpu_behavioral_H
-#define H_Work_cpu_behavioral_H
+#ifndef H_Work_registri_behavioral_H
+#define H_Work_registri_behavioral_H
 #ifdef __MINGW32__
 #include "xsimMinGW.h"
 #else
@@ -19,14 +19,14 @@
 #endif
 
 
-class Work_cpu_behavioral: public HSim__s6 {
+class Work_registri_behavioral: public HSim__s6 {
 public:
 
-    HSim__s1 SE[6];
+    HSim__s1 SE[8];
 
-    HSim__s1 SA[37];
-    Work_cpu_behavioral(const char * name);
-    ~Work_cpu_behavioral();
+    HSim__s1 SA[16];
+    Work_registri_behavioral(const char * name);
+    ~Work_registri_behavioral();
     void constructObject();
     void constructPorts();
     void reset();
@@ -36,6 +36,6 @@ public:
 
 
 
-HSim__s6 *createWork_cpu_behavioral(const char *name);
+HSim__s6 *createWork_registri_behavioral(const char *name);
 
 #endif

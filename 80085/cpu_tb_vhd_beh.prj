@@ -1,4 +1,5 @@
 vhdl work "shifter16.vhd"
+vhdl work "registri.vhd"
 vhdl work "oct2to1mux.vhd"
 vhdl work "mseq.vhd"
 vhdl work "hex2u1mux.vhd"

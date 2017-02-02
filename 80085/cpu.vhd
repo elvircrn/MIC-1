@@ -62,37 +62,22 @@ signal s_c_bus : std_logic_vector(15 downto 0);
 signal s_seq_out : std_logic;
 signal s_mmux_out : std_logic_vector(7 downto 0);
 
---Registri
-signal pc : std_logic_vector (15 downto 0) := x"0000";
-signal ac : std_logic_vector (15 downto 0) := x"0000";
-signal sp : std_logic_vector (15 downto 0) := x"0000";
-signal ir : std_logic_vector (15 downto 0) := x"0000";
-signal tir : std_logic_vector (15 downto 0) := x"0000";
-signal zero : std_logic_vector (15 downto 0) := x"0000" ;
-signal p_one : std_logic_vector (15 downto 0) := x"0001";
-signal n_one : std_logic_vector (15 downto 0) := x"FFFF";
-signal amask : std_logic_vector (15 downto 0) := x"0000";
-signal smask : std_logic_vector (15 downto 0) := x"0000";
-signal a : std_logic_vector (15 downto 0) := x"0000";
-signal b : std_logic_vector (15 downto 0) := x"0000";
-signal c : std_logic_vector (15 downto 0) := x"0000";
-signal d : std_logic_vector (15 downto 0) := x"0000";
-signal e : std_logic_vector (15 downto 0) := x"0000";
-signal f : std_logic_vector (15 downto 0) := x"0000";
+
 
 component distributer
 	port (
 	clk, reset : in std_logic;
 	t1, t2, t3, t4 : out std_logic
 	);
-end component; 
+end component;
 
 component ALU
 	port(
 		x1, x2 : in std_logic_vector(15 downto 0);
 		f0, f1 : in std_logic;
 		y0 : out std_logic_vector(15 downto 0);
-		z, n : out std_logic	);
+		z, n : out std_logic
+	);
 end component;
 
 component ROM256x32
@@ -119,6 +104,7 @@ component registri
 		a_adr : in std_logic_vector (15 downto 0);
 		b_adr : in std_logic_vector (15 downto 0);
 		c_adr : in std_logic_vector (15 downto 0);
+		enc   : in std_logic;
 		reset : in std_logic;
 		a_bus : out std_logic_vector (15 downto 0);
 		b_bus : out std_logic_vector (15 downto 0);
@@ -169,28 +155,8 @@ p_sifter: shifter16 port map (s_alu_out, s_sh(1), s_sh(0), s_c_bus);
 p_mseq: mseq port map(s_cond, s_n, s_z, s_seq_out);
 mmux : oct2to1mux port map(s_mpc_out_inc, s_mir_adresa, s_mmux_out, s_seq_out);
 amux : hex2u1mux port map (s_a_latch, s_mbr_latch, s_amux_out, s_amux);
---
---process(reset)
---	begin
---		if reset = '1' then
---			pc <= x"0000";
---			ac <= x"0000";
---			sp <= x"0000";
---			ir <= x"0000";
---			tir <=  x"0000";
---			zero <= x"0000" ;
---			p_one <=  x"0001";
---			n_one <= x"FFFF";
---			amask <= x"0000";
---			smask <= x"0000";
---			a  <= x"0000";
---			b  <= x"0000";
---			c  <= x"0000";
---			d  <= x"0000";
---			e  <= x"0000";
---			f  <= x"0000";
---		end if;
---	end process;
+registers : registri port map(s_a_dek_out, s_b_dek_out, s_c_dek_out, s_enc, reset, s_a_latch, s_b_latch, s_c_bus);
+
 
 --Ciklus 1
 process (s_t1, s_rom_out)
@@ -220,45 +186,7 @@ process (s_t1, s_rom_out)
 process(s_t2, s_a_dek_out, s_b_dek_out)
 begin
  if s_t2 = '1' then
- s_mpc_out_inc <= s_mpc_out + '1';
- case s_a_dek_out is
-	when "0000000000000001" => s_a_latch <= pc;
-	when "0000000000000010" => s_a_latch <= ac;
-	when "0000000000000100" => s_a_latch <= sp;
-	when "0000000000001000" => s_a_latch <= ir;
-	when "0000000000010000" => s_a_latch <= tir;
-	when "0000000000100000" => s_a_latch <= zero;
-	when "0000000001000000" => s_a_latch <= p_one;
-	when "0000000010000000" => s_a_latch <= n_one;
-	when "0000000100000000" => s_a_latch <= amask;
-	when "0000001000000000" => s_a_latch <= smask;
-	when "0000010000000000" => s_a_latch <= a;
-	when "0000100000000000" => s_a_latch <= b;
-	when "0001000000000000" => s_a_latch <= c;
-	when "0010000000000000" => s_a_latch <= d;
-	when "0100000000000000" => s_a_latch <= e;
-	when "1000000000000000" => s_a_latch <= f;
-	when others => null;
- end case;
- case s_b_dek_out is
-	when "0000000000000001" => s_b_latch <= pc;
-	when "0000000000000010" => s_b_latch <= ac;
-	when "0000000000000100" => s_b_latch <= sp;
-	when "0000000000001000" => s_b_latch <= ir;
-	when "0000000000010000" => s_b_latch <= tir;
-	when "0000000000100000" => s_b_latch <= zero;
-	when "0000000001000000" => s_b_latch <= p_one;
-	when "0000000010000000" => s_b_latch <= n_one;
-	when "0000000100000000" => s_b_latch <= amask;
-	when "0000001000000000" => s_b_latch <= smask;
-	when "0000010000000000" => s_b_latch <= a;
-	when "0000100000000000" => s_b_latch <= b;
-	when "0001000000000000" => s_b_latch <= c;
-	when "0010000000000000" => s_b_latch <= d;
-	when "0100000000000000" => s_b_latch <= e;
-	when "1000000000000000" => s_b_latch <= f;
-	when others => null;
- end case;
+	s_mpc_out_inc <= s_mpc_out + '1';
  end if;
 end process;
 
@@ -279,36 +207,15 @@ process(s_t4, s_mbr, s_rd, s_wr, s_enc, s_c, s_c_bus, s_mmux_out)
 begin
  if (s_t4 = '1') then
 	s_mpc_out <= s_mmux_out;
-	 if (s_enc = '1') then
-		case s_c_dek_out is
-			when "0000000000000001" => pc <= s_c_bus;
-			when "0000000000000010" => ac <= s_c_bus;
-			when "0000000000000100" => sp <= s_c_bus;
-			when "0000000000001000" => ir <= s_c_bus;
-			when "0000000000010000" => tir <= s_c_bus;
-			when "0000000000100000" => null;
-			when "0000000001000000" => null;
-			when "0000000010000000" => null;
-			when "0000000100000000" => amask <= s_c_bus;
-			when "0000001000000000" => smask <= s_c_bus;
-			when "0000010000000000" => a <= s_c_bus;
-			when "0000100000000000" => b <= s_c_bus;
-			when "0001000000000000" => c <= s_c_bus;
-			when "0010000000000000" => d <= s_c_bus;
-			when "0100000000000000" => e <= s_c_bus;
-			when "1000000000000000" => f <= s_c_bus;
-			when others => null;
-		end case;
-	 end if;
-		 if s_mbr = '1' then
-			s_mbr_latch <= s_c_bus;
-		 end if;
-		 if s_rd = '1' then
-			s_mbr_latch <= podaci;
-		 end if;
-		 if s_wr = '1' then
-			podaci <= s_mbr_latch;
-		 end if;
+	if s_mbr = '1' then
+		s_mbr_latch <= s_c_bus;
+	end if;
+	if s_rd = '1' then
+		s_mbr_latch <= podaci;
+	end if;
+	if s_wr = '1' then
+		podaci <= s_mbr_latch;
+	end if;
  end if;
 end process;
 
