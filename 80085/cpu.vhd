@@ -148,12 +148,14 @@ end component;
 
 begin
 
-
+p_fazni_sat : distributer port map (clk, reset, s_t4, s_t3, s_t2, s_t1);
+rom : rom256x32 port map (s_mpc_out, s_rom_out);
 decoder_1 : decoder port map (s_a, '1', s_a_dek_out);
 decoder_2 : decoder port map (s_b, '1', s_b_dek_out);
 p_alu: alu port map (s_hex2u1mux_out, s_b_latch, s_alu(0), s_alu(1), s_alu_out, s_z, s_n);
 p_sifter: shifter16 port map (s_alu_out, s_sh(1), s_sh(0), s_c_bus);
 p_mseq: mseq port map(s_cond, s_n, s_z, s_seq_out);
+
 
 
 --Korak 2

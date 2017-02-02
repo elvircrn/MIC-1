@@ -38,9 +38,11 @@ end mseq;
 architecture Behavioral of mseq is
 
 begin
-	
+process(cond, n, z)
+begin
 	seq_out <= (cond(1) and cond(0)) or 
 		(cond(0) and n) or
 		(cond(1) and z);
+end process;
 end Behavioral;
 

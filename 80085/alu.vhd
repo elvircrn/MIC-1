@@ -38,11 +38,19 @@ end ALU;
 
 architecture Behavioral of ALU is
 signal y : STD_LOGIC_VECTOR (15 downto 0);
+
 begin 
-y <= (x1 + x2) when (f1 = '0' and f0 = '0') else
-          (x1 and x2) when (f1 = '0' and f0 = '1') else
-          x1 when (f1 = '1' and f0 = '0') else
-          (not x1) when (f1 = '1' and f0 = '1');
+process(x1, x2, f0)
+begin
+	if (f1 = '0' and f0 = '0') then
+		y <= (x1 + x2);
+	elsif (f1 = '0' and f0 = '1') then
+		y <= (x1 and x2);
+	elsif (f1 = '1' and f0 = '0') then
+		y <= x1;
+	else
+		y <= not x1;
+	end if;
 
 z <= (y(0) or y(1) or y(2) or y(3) or y(4) 
 or y(5) or y(6) or y(7) or y(8) or y(9) 
@@ -52,6 +60,6 @@ or y(15));
 n <= y(15);
 
 y0 <= y;
-
+end process;
 end Behavioral;
 
