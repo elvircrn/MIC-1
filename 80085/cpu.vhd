@@ -40,7 +40,7 @@ end cpu;
 
 architecture Behavioral of cpu is
 
-signal s_mpc_reg : std_logic_vector (7 downto 0) :=x"00";
+signal s_mpc_reg : std_logic_vector (7 downto 0) :=x"00" ;
 signal s_mir_reg : std_logic_vector (31 downto 0);
 signal s_rom_out : std_logic_vector (31 downto 0);
 signal s_mir : std_logic_vector(31 downto 0);
@@ -50,7 +50,8 @@ signal s_cond, s_alu, s_sh : std_logic_vector(1 downto 0);
 signal s_mbr, s_mar, s_rd, s_wr, s_enc : std_logic;
 signal s_c, s_b, s_a : std_logic_vector(3 downto 0);
 signal s_mir_adresa : std_logic_vector(7 downto 0);
-signal s_mpc_out, s_mpc_out_inc : std_logic_vector(7 downto 0);
+signal s_mpc_out : std_logic_vector(7 downto 0) :=x"00" ;
+signal s_mpc_out_inc : std_logic_vector(7 downto 0);
 signal s_a_dek_out, s_b_dek_out, s_c_dek_out : std_logic_vector(15 downto 0);
 signal s_a_latch, s_b_latch : std_logic_vector(15 downto 0);
 signal s_amux_out : std_logic_vector(15 downto 0);
@@ -69,7 +70,7 @@ signal ir : std_logic_vector (15 downto 0) := x"0000";
 signal tir : std_logic_vector (15 downto 0) := x"0000";
 signal zero : std_logic_vector (15 downto 0) := x"0000" ;
 signal p_one : std_logic_vector (15 downto 0) := x"0001";
-signal n_one : std_logic_vector (15 downto 0) := x"1111";
+signal n_one : std_logic_vector (15 downto 0) := x"FFFF";
 signal amask : std_logic_vector (15 downto 0) := x"0000";
 signal smask : std_logic_vector (15 downto 0) := x"0000";
 signal a : std_logic_vector (15 downto 0) := x"0000";
@@ -151,18 +152,15 @@ end component;
 begin
 
 --TODO
---Popraviti (potencijalno) n_one registar
---Testirati shifter
---Testirati pisanje u mar i mbr
---Testirati vise od jedne instrukcije
 --Testirati control flow
---Koristiti reset za resetovanje registara 
+--Popraviti reset(ako se koristi, vrijednost registra postane undefined)
+--Popraviti vrijeme citanja iz ROM-a
 --Implementovati U/I komunikaciju
 --Odvojiti registre u posebnu komponentu (ne znam treba li)
 
 --Mapiranje
 p_fazni_sat : distributer port map (clk, reset, s_t1, s_t2, s_t3, s_t4);
-rom : rom256x32 port map (s_mpc_out, s_rom_out);
+rom : rom256x32 port map (s_mpc_reg, s_rom_out);
 decoder_1 : decoder port map (s_a, '1', s_a_dek_out);
 decoder_2 : decoder port map (s_b, '1', s_b_dek_out);
 decoder_3 : decoder port map (s_c, '1', s_c_dek_out);
@@ -171,12 +169,35 @@ p_sifter: shifter16 port map (s_alu_out, s_sh(1), s_sh(0), s_c_bus);
 p_mseq: mseq port map(s_cond, s_n, s_z, s_seq_out);
 mmux : oct2to1mux port map(s_mpc_out_inc, s_mir_adresa, s_mmux_out, s_seq_out);
 amux : hex2u1mux port map (s_a_latch, s_mbr_latch, s_amux_out, s_amux);
+--
+--process(reset)
+--	begin
+--		if reset = '1' then
+--			pc <= x"0000";
+--			ac <= x"0000";
+--			sp <= x"0000";
+--			ir <= x"0000";
+--			tir <=  x"0000";
+--			zero <= x"0000" ;
+--			p_one <=  x"0001";
+--			n_one <= x"FFFF";
+--			amask <= x"0000";
+--			smask <= x"0000";
+--			a  <= x"0000";
+--			b  <= x"0000";
+--			c  <= x"0000";
+--			d  <= x"0000";
+--			e  <= x"0000";
+--			f  <= x"0000";
+--		end if;
+--	end process;
 
 --Ciklus 1
 process (s_t1, s_rom_out)
 	variable v_mir : std_logic_vector (31 downto 0);
 	begin
 		if s_t1 = '1' then
+			s_mpc_reg <= s_mpc_out;
 			v_mir := s_rom_out;
 			s_amux <= v_mir(31);
 			s_cond <= v_mir(30 downto 29);

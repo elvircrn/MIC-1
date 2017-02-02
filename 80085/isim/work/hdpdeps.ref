@@ -1,73 +1,73 @@
 V3 58
-FL C:/Users/Amar.B/Desktop/LD/80085/80085/alu.vhd 2017/02/02.05:28:38 J.36
-EN work/ALU 1486009726 FL C:/Users/Amar.B/Desktop/LD/80085/80085/alu.vhd \
+FL C:/Users/Amar.B/Desktop/LD/80085/80085/alu.vhd 2017/02/02.06:41:10 J.36
+EN work/ALU 1486014117 FL C:/Users/Amar.B/Desktop/LD/80085/80085/alu.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/ALU/Behavioral 1486009727 \
-      FL C:/Users/Amar.B/Desktop/LD/80085/80085/alu.vhd EN work/ALU 1486009726
-FL C:/Users/Amar.B/Desktop/LD/80085/80085/cpu.vhd 2017/02/02.05:05:43 J.36
-EN work/cpu 1486009970 FL C:/Users/Amar.B/Desktop/LD/80085/80085/cpu.vhd \
+AR work/ALU/Behavioral 1486014118 \
+      FL C:/Users/Amar.B/Desktop/LD/80085/80085/alu.vhd EN work/ALU 1486014117
+FL C:/Users/Amar.B/Desktop/LD/80085/80085/cpu.vhd 2017/02/02.07:01:36 J.36
+EN work/cpu 1486015303 FL C:/Users/Amar.B/Desktop/LD/80085/80085/cpu.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/cpu/Behavioral 1486009971 \
-      FL C:/Users/Amar.B/Desktop/LD/80085/80085/cpu.vhd EN work/cpu 1486009970 \
+AR work/cpu/Behavioral 1486015304 \
+      FL C:/Users/Amar.B/Desktop/LD/80085/80085/cpu.vhd EN work/cpu 1486015303 \
       CP distributer CP rom256x32 CP decoder CP alu CP shifter16 CP mseq CP oct2to1mux \
       CP hex2u1mux
-FL C:/Users/Amar.B/Desktop/LD/80085/80085/cpu_tb.vhd 2017/02/02.04:41:48 J.36
-EN work/cpu_tb_vhd 1486009972 \
+FL C:/Users/Amar.B/Desktop/LD/80085/80085/cpu_tb.vhd 2017/02/02.06:48:39 J.36
+EN work/cpu_tb_vhd 1486015305 \
       FL C:/Users/Amar.B/Desktop/LD/80085/80085/cpu_tb.vhd PB ieee/std_logic_1164 1179176983 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991 PB ieee/NUMERIC_STD 1179176997
-AR work/cpu_tb_vhd/behavior 1486009973 \
-      FL C:/Users/Amar.B/Desktop/LD/80085/80085/cpu_tb.vhd EN work/cpu_tb_vhd 1486009972 \
+AR work/cpu_tb_vhd/behavior 1486015306 \
+      FL C:/Users/Amar.B/Desktop/LD/80085/80085/cpu_tb.vhd EN work/cpu_tb_vhd 1486015305 \
       CP cpu
-FL C:/Users/Amar.B/Desktop/LD/80085/80085/decoder.vhd 2017/02/02.03:05:14 J.36
-EN work/decoder 1486006552 FL C:/Users/Amar.B/Desktop/LD/80085/80085/decoder.vhd \
+FL C:/Users/Amar.B/Desktop/LD/80085/80085/decoder.vhd 2017/02/02.06:41:10 J.36
+EN work/decoder 1486014115 FL C:/Users/Amar.B/Desktop/LD/80085/80085/decoder.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991 PB ieee/NUMERIC_STD 1179176997
-AR work/decoder/Behavioral 1486006553 \
-      FL C:/Users/Amar.B/Desktop/LD/80085/80085/decoder.vhd EN work/decoder 1486006552
-FL C:/Users/Amar.B/Desktop/LD/80085/80085/distributer.vhd 2017/02/02.04:45:50 J.36
-EN work/distributer 1486007177 \
+AR work/decoder/Behavioral 1486014116 \
+      FL C:/Users/Amar.B/Desktop/LD/80085/80085/decoder.vhd EN work/decoder 1486014115
+FL C:/Users/Amar.B/Desktop/LD/80085/80085/distributer.vhd 2017/02/02.06:41:10 J.36
+EN work/distributer 1486014111 \
       FL C:/Users/Amar.B/Desktop/LD/80085/80085/distributer.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/distributer/Behavioral 1486007178 \
+AR work/distributer/Behavioral 1486014112 \
       FL C:/Users/Amar.B/Desktop/LD/80085/80085/distributer.vhd \
-      EN work/distributer 1486007177
-FL C:/Users/Amar.B/Desktop/LD/80085/80085/hex2u1mux.vhd 2017/02/02.03:05:14 J.36
-EN work/hex2u1mux 1486006562 \
+      EN work/distributer 1486014111
+FL C:/Users/Amar.B/Desktop/LD/80085/80085/hex2u1mux.vhd 2017/02/02.06:41:10 J.36
+EN work/hex2u1mux 1486014125 \
       FL C:/Users/Amar.B/Desktop/LD/80085/80085/hex2u1mux.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/hex2u1mux/Behavioral 1486006563 \
-      FL C:/Users/Amar.B/Desktop/LD/80085/80085/hex2u1mux.vhd EN work/hex2u1mux 1486006562
-FL C:/Users/Amar.B/Desktop/LD/80085/80085/mseq.vhd 2017/02/02.03:08:35 J.36
-EN work/mseq 1486006558 FL C:/Users/Amar.B/Desktop/LD/80085/80085/mseq.vhd \
+AR work/hex2u1mux/Behavioral 1486014126 \
+      FL C:/Users/Amar.B/Desktop/LD/80085/80085/hex2u1mux.vhd EN work/hex2u1mux 1486014125
+FL C:/Users/Amar.B/Desktop/LD/80085/80085/mseq.vhd 2017/02/02.06:41:11 J.36
+EN work/mseq 1486014121 FL C:/Users/Amar.B/Desktop/LD/80085/80085/mseq.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/mseq/Behavioral 1486006559 \
-      FL C:/Users/Amar.B/Desktop/LD/80085/80085/mseq.vhd EN work/mseq 1486006558
-FL C:/Users/Amar.B/Desktop/LD/80085/80085/oct2to1mux.vhd 2017/02/02.03:20:13 J.36
-EN work/oct2to1mux 1486006560 \
+AR work/mseq/Behavioral 1486014122 \
+      FL C:/Users/Amar.B/Desktop/LD/80085/80085/mseq.vhd EN work/mseq 1486014121
+FL C:/Users/Amar.B/Desktop/LD/80085/80085/oct2to1mux.vhd 2017/02/02.06:41:11 J.36
+EN work/oct2to1mux 1486014123 \
       FL C:/Users/Amar.B/Desktop/LD/80085/80085/oct2to1mux.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/oct2to1mux/Behavioral 1486006561 \
-      FL C:/Users/Amar.B/Desktop/LD/80085/80085/oct2to1mux.vhd EN work/oct2to1mux 1486006560
-FL C:/Users/Amar.B/Desktop/LD/80085/80085/ROM256x32.vhd 2017/02/02.04:35:09 J.36
-EN work/ROM256x32 1486006550 \
+AR work/oct2to1mux/Behavioral 1486014124 \
+      FL C:/Users/Amar.B/Desktop/LD/80085/80085/oct2to1mux.vhd EN work/oct2to1mux 1486014123
+FL C:/Users/Amar.B/Desktop/LD/80085/80085/ROM256x32.vhd 2017/02/02.06:48:15 J.36
+EN work/ROM256x32 1486014536 \
       FL C:/Users/Amar.B/Desktop/LD/80085/80085/ROM256x32.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991 PB ieee/NUMERIC_STD 1179176997
-AR work/ROM256x32/behavioral 1486006551 \
-      FL C:/Users/Amar.B/Desktop/LD/80085/80085/ROM256x32.vhd EN work/ROM256x32 1486006550
-FL C:/Users/Amar.B/Desktop/LD/80085/80085/shifter16.vhd 2017/02/02.05:32:36 J.36
-EN work/shifter16 1486009968 \
+AR work/ROM256x32/behavioral 1486014537 \
+      FL C:/Users/Amar.B/Desktop/LD/80085/80085/ROM256x32.vhd EN work/ROM256x32 1486014536
+FL C:/Users/Amar.B/Desktop/LD/80085/80085/shifter16.vhd 2017/02/02.06:41:11 J.36
+EN work/shifter16 1486014119 \
       FL C:/Users/Amar.B/Desktop/LD/80085/80085/shifter16.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/shifter16/Behavioral 1486009969 \
-      FL C:/Users/Amar.B/Desktop/LD/80085/80085/shifter16.vhd EN work/shifter16 1486009968
+AR work/shifter16/Behavioral 1486014120 \
+      FL C:/Users/Amar.B/Desktop/LD/80085/80085/shifter16.vhd EN work/shifter16 1486014119
 FL C:/Users/elvircrn/Documents/codes2/80085/80085/alu.vhd 2017/02/02.03:05:58 J.36
 FL C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd 2017/02/02.04:03:03 J.36
 FL C:/Users/elvircrn/Documents/codes2/80085/80085/cputest.vhd 2017/02/02.04:01:16 J.36
