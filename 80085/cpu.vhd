@@ -151,12 +151,14 @@ end component;
 begin
 
 --TODO
---Implementovati U/I komunikaciju
---Koristiti reset za resetovanje registara
+--Popraviti (potencijalno) n_one registar
 --Testirati shifter
 --Testirati pisanje u mar i mbr
 --Testirati vise od jedne instrukcije
 --Testirati control flow
+--Koristiti reset za resetovanje registara 
+--Implementovati U/I komunikaciju
+--Odvojiti registre u posebnu komponentu (ne znam treba li)
 
 --Mapiranje
 p_fazni_sat : distributer port map (clk, reset, s_t1, s_t2, s_t3, s_t4);
