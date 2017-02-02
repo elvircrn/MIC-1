@@ -50,7 +50,7 @@ signal s_mir_reg : std_logic_vector (31 downto 0);
 signal s_rom_out : std_logic_vector (31 downto 0);
 signal s_mir : std_logic_vector(31 downto 0);
 signal s_t1, s_t2, s_t3, s_t4 : std_logic;
-signal s_hex2u1mux : std_logic; 
+signal s_amux : std_logic; 
 signal s_cond, s_alu, s_sh : std_logic_vector(1 downto 0);
 signal s_mbr, s_mar, s_rd, s_wr, s_enc : std_logic;
 signal s_c, s_b, s_a : std_logic_vector(3 downto 0);
@@ -58,13 +58,13 @@ signal s_mir_adresa : std_logic_vector(7 downto 0);
 signal s_mpc_out, s_mpc_out_inc : std_logic_vector(7 downto 0);
 signal s_a_dek_out, s_b_dek_out, s_c_dek_out : std_logic_vector(15 downto 0);
 signal s_a_latch, s_b_latch : std_logic_vector(15 downto 0);
-signal s_hex2u1mux_out : std_logic_vector(15 downto 0);
+signal s_amux_out : std_logic_vector(15 downto 0);
 signal s_mar_latch, s_mbr_latch : std_logic_vector(15 downto 0);
 signal s_alu_out : std_logic_vector(15 downto 0);
 signal s_z, s_n : std_logic;
 signal s_c_bus : std_logic_vector(15 downto 0);
 signal s_seq_out : std_logic;
-signal s_oct2to1mux_out : std_logic_vector(7 downto 0);
+signal s_mmux_out : std_logic_vector(7 downto 0);
 
 --Korak 5
 signal pc : std_logic_vector (15 downto 0);
@@ -110,14 +110,6 @@ component decoder
 			 dec : out std_logic_vector(15 downto 0));
 end component;
 
-component hex2u1mux
-		port (
-		  x0, x1 : in std_logic_vector(15 downto 0);
-        y0 : out std_logic_vector(15 downto 0);
-        c : in std_logic
-);
-end component;
-
 component mseq 
 	port(
 		cond : in std_logic_vector(1 downto 0);
@@ -145,6 +137,21 @@ component shifter16
          data_out : out std_logic_vector(15 downto 0) );
 end component;
 
+component hex2u1mux 
+port(
+        x0, x1 : in std_logic_vector(15 downto 0);
+        y0 : out std_logic_vector(15 downto 0);
+        c : in std_logic
+);
+end component;
+
+component oct2to1mux
+port(
+        x0, x1 : in std_logic_vector(7 downto 0);
+        y0 : out std_logic_vector(7 downto 0);
+        c : in std_logic
+);
+end component;
 
 begin
 
@@ -152,11 +159,12 @@ p_fazni_sat : distributer port map (clk, reset, s_t4, s_t3, s_t2, s_t1);
 rom : rom256x32 port map (s_mpc_out, s_rom_out);
 decoder_1 : decoder port map (s_a, '1', s_a_dek_out);
 decoder_2 : decoder port map (s_b, '1', s_b_dek_out);
-p_alu: alu port map (s_hex2u1mux_out, s_b_latch, s_alu(0), s_alu(1), s_alu_out, s_z, s_n);
+decoder_3 : decoder port map (s_c, '1', s_c_dek_out);
+p_alu: alu port map (s_amux_out, s_b_latch, s_alu(0), s_alu(1), s_alu_out, s_z, s_n);
 p_sifter: shifter16 port map (s_alu_out, s_sh(1), s_sh(0), s_c_bus);
 p_mseq: mseq port map(s_cond, s_n, s_z, s_seq_out);
-
-
+mmux : oct2to1mux port map(s_mpc_out_inc, s_mir_adresa, s_mmux_out, s_seq_out);
+amux : hex2u1mux port map (s_a_latch, s_mbr_latch, s_amux_out, s_amux);
 
 --Korak 2
  
@@ -166,7 +174,7 @@ process (s_t1, s_rom_out)
 	begin
 		if s_t1 = '1' then
 			v_mir := s_rom_out;
-			s_hex2u1mux <= v_mir(31);
+			s_amux <= v_mir(31);
 			s_cond <= v_mir(30 downto 29);
 			s_alu <= v_mir(28 downto 27);
 			s_sh <= v_mir(26 downto 25);
@@ -232,14 +240,14 @@ begin
 end process;
 
 --amux
-process(s_mbr_latch, s_a_latch, s_hex2u1mux)
-begin
-	if s_hex2u1mux = '0' then
-	s_hex2u1mux_out <= s_a_latch;
-	elsif s_hex2u1mux = '1' then
-	s_hex2u1mux_out <= s_mbr_latch;
-	end if;
-end process;
+--process(s_mbr_latch, s_a_latch, s_amux)
+--begin
+--	if s_amux = '0' then
+--	s_amux_out <= s_a_latch;
+--	elsif s_amux = '1' then
+--	s_amux_out <= s_mbr_latch;
+--	end if;
+--end process;
 
 --Korak 8
 -- alu
@@ -257,73 +265,52 @@ end process;
 
 
 --mmux
-process(s_seq_out, s_mpc_out_inc, s_mir_adresa)
-begin
- if s_seq_out = '0' then
- s_oct2to1mux_out <= s_mpc_out_inc;
- elsif s_seq_out = '1' then
- s_oct2to1mux_out <= s_mir_adresa;
- end if;
-end process;
+--process(s_seq_out, s_mpc_out_inc, s_mir_adresa)
+--begin
+-- if s_seq_out = '0' then
+-- s_mmux_out <= s_mpc_out_inc;
+-- elsif s_seq_out = '1' then
+-- s_mmux_out <= s_mir_adresa;
+-- end if;
+--end process;
 
 
-
-process(s_t4, s_mbr, s_rd, s_wr, s_enc, s_c, s_c_bus, s_oct2to1mux_out)
+process(s_t4, s_mbr, s_rd, s_wr, s_enc, s_c, s_c_bus, s_mmux_out)
  variable v_c_dek_out : std_logic_vector(15 downto 0);
 begin
  if (s_t4 = '1') then
- s_mpc_out <= s_oct2to1mux_out;
- if (s_enc = '1') then
- case s_c is
- when "0000" => v_c_dek_out := "0000000000000001";
- when "0001" => v_c_dek_out := "0000000000000010";
- when "0010" => v_c_dek_out := "0000000000000100";
- when "0011" => v_c_dek_out := "0000000000001000";
- when "0100" => v_c_dek_out := "0000000000010000";
- when "0101" => v_c_dek_out := "0000000000100000";
- when "0110" => v_c_dek_out := "0000000001000000";
- when "0111" => v_c_dek_out := "0000000010000000";
- when "1000" => v_c_dek_out := "0000000100000000";
- when "1001" => v_c_dek_out := "0000001000000000";
- when "1010" => v_c_dek_out := "0000010000000000";
- when "1011" => v_c_dek_out := "0000100000000000";
- when "1100" => v_c_dek_out := "0001000000000000";
- when "1101" => v_c_dek_out := "0010000000000000";
- when "1110" => v_c_dek_out := "0100000000000000";
- when "1111" => v_c_dek_out := "1000000000000000";
- when others => null;
- end case;
- case v_c_dek_out is
- when "0000000000000001" => pc <= s_c_bus;
- when "0000000000000010" => ac <= s_c_bus;
- when "0000000000000100" => sp <= s_c_bus;
- when "0000000000001000" => ir <= s_c_bus;
- when "0000000000010000" => tir <= s_c_bus;
- when "0000000000100000" => null;
- when "0000000001000000" => null;
- when "0000000010000000" => null;
- when "0000000100000000" => amask <= s_c_bus;
- when "0000001000000000" => smask <= s_c_bus;
- when "0000010000000000" => a <= s_c_bus;
- when "0000100000000000" => b <= s_c_bus;
- when "0001000000000000" => c <= s_c_bus;
- when "0010000000000000" => d <= s_c_bus;
- when "0100000000000000" => e <= s_c_bus;
- when "1000000000000000" => f <= s_c_bus;
- when others => null;
- end case;
+	s_mpc_out <= s_mmux_out;
+	 if (s_enc = '1') then
+		case s_c_dek_out is
+			when "0000000000000001" => pc <= s_c_bus;
+			when "0000000000000010" => ac <= s_c_bus;
+			when "0000000000000100" => sp <= s_c_bus;
+			when "0000000000001000" => ir <= s_c_bus;
+			when "0000000000010000" => tir <= s_c_bus;
+			when "0000000000100000" => null;
+			when "0000000001000000" => null;
+			when "0000000010000000" => null;
+			when "0000000100000000" => amask <= s_c_bus;
+			when "0000001000000000" => smask <= s_c_bus;
+			when "0000010000000000" => a <= s_c_bus;
+			when "0000100000000000" => b <= s_c_bus;
+			when "0001000000000000" => c <= s_c_bus;
+			when "0010000000000000" => d <= s_c_bus;
+			when "0100000000000000" => e <= s_c_bus;
+			when "1000000000000000" => f <= s_c_bus;
+			when others => null;
+		end case;
+	 end if;
+		 if s_mbr = '1' then
+			s_mbr_latch <= s_c_bus;
+		 end if;
+		 if s_rd = '1' then
+			s_mbr_latch <= podaci;
+		 end if;
+		 if s_wr = '1' then
+			podaci <= s_mbr_latch;
+		 end if;
  end if;
- if s_mbr = '1' then
- s_mbr_latch <= s_c_bus;
- end if;
- if s_rd = '1' then
- s_mbr_latch <= podaci;
- end if;
- if s_wr = '1' then
- podaci <= s_mbr_latch;
- end if;
- end if;
- s_c_dek_out <= v_c_dek_out;
 end process;
 
 end Behavioral;

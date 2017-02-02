@@ -24,8 +24,8 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity oct2to1mux is
 port(
-        x0, x1 : in std_logic_vector(15 downto 0);
-        y0 : out std_logic_vector(15 downto 0);
+        x0, x1 : in std_logic_vector(7 downto 0);
+        y0 : out std_logic_vector(7 downto 0);
         c : in std_logic
 );
 end oct2to1mux;
