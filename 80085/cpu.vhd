@@ -43,12 +43,14 @@ end cpu;
 
 architecture Behavioral of cpu is
 
+
+
 signal s_mpc_reg : std_logic_vector (7 downto 0) :=x"00";
 signal s_mir_reg : std_logic_vector (31 downto 0);
 signal s_rom_out : std_logic_vector (31 downto 0);
 signal s_mir : std_logic_vector(31 downto 0);
 signal s_t1, s_t2, s_t3, s_t4 : std_logic;
-signal s_amux : std_logic; 
+signal s_hex2u1mux : std_logic; 
 signal s_cond, s_alu, s_sh : std_logic_vector(1 downto 0);
 signal s_mbr, s_mar, s_rd, s_wr, s_enc : std_logic;
 signal s_c, s_b, s_a : std_logic_vector(3 downto 0);
@@ -56,13 +58,13 @@ signal s_mir_adresa : std_logic_vector(7 downto 0);
 signal s_mpc_out, s_mpc_out_inc : std_logic_vector(7 downto 0);
 signal s_a_dek_out, s_b_dek_out, s_c_dek_out : std_logic_vector(15 downto 0);
 signal s_a_latch, s_b_latch : std_logic_vector(15 downto 0);
-signal s_amux_out : std_logic_vector(15 downto 0);
+signal s_hex2u1mux_out : std_logic_vector(15 downto 0);
 signal s_mar_latch, s_mbr_latch : std_logic_vector(15 downto 0);
 signal s_alu_out : std_logic_vector(15 downto 0);
 signal s_z, s_n : std_logic;
 signal s_c_bus : std_logic_vector(15 downto 0);
 signal s_seq_out : std_logic;
-signal s_mmux_out : std_logic_vector(7 downto 0);
+signal s_oct2to1mux_out : std_logic_vector(7 downto 0);
 
 --Korak 5
 signal pc : std_logic_vector (15 downto 0);
@@ -143,11 +145,18 @@ component shifter16
          data_out : out std_logic_vector(15 downto 0) );
 end component;
 
+
 begin
 
+
+decoder_1 : decoder port map (s_a, '1', s_a_dek_out);
+decoder_2 : decoder port map (s_b, '1', s_b_dek_out);
+p_alu: alu port map (s_hex2u1mux_out, s_b_latch, s_alu(0), s_alu(1), s_alu_out, s_z, s_n);
+p_sifter: shifter16 port map (s_alu_out, s_sh(1), s_sh(0), s_c_bus);
+p_mseq: mseq port map(s_cond, s_n, s_z, s_seq_out);
+
+
 --Korak 2
-p_fazni_sat : distributer port map (clk, reset, s_t4, s_t3, s_t2, s_t1);
-rom : rom256x32 port map (s_mpc_out, s_rom_out);
  
 --Korak 3 
 process (s_t1, s_rom_out)
@@ -155,7 +164,7 @@ process (s_t1, s_rom_out)
 	begin
 		if s_t1 = '1' then
 			v_mir := s_rom_out;
-			s_amux <= v_mir(31);
+			s_hex2u1mux <= v_mir(31);
 			s_cond <= v_mir(30 downto 29);
 			s_alu <= v_mir(28 downto 27);
 			s_sh <= v_mir(26 downto 25);
@@ -173,8 +182,6 @@ process (s_t1, s_rom_out)
 	end process;
 
 --Korak 4
-decoder_1 : decoder port map (s_a, '1', s_a_dek_out);
-decoder_2 : decoder port map (s_b, '1', s_b_dek_out);
 
 --Korak 6
 process(s_t2, s_a_dek_out, s_b_dek_out)
@@ -222,22 +229,19 @@ begin
  end if;
 end process;
 
---Korak 7 TODO: Zamijeniti sa hex2u1mux, u mux dodati proces
 --amux
-process(s_mbr_latch, s_a_latch, s_amux)
+process(s_mbr_latch, s_a_latch, s_hex2u1mux)
 begin
-	if s_amux = '0' then
-	s_amux_out <= s_a_latch;
-	elsif s_amux = '1' then
-	s_amux_out <= s_mbr_latch;
+	if s_hex2u1mux = '0' then
+	s_hex2u1mux_out <= s_a_latch;
+	elsif s_hex2u1mux = '1' then
+	s_hex2u1mux_out <= s_mbr_latch;
 	end if;
 end process;
 
 --Korak 8
 -- alu
-p_alu: alu port map (s_amux_out, s_b_latch, s_alu(0), s_alu(1), s_alu_out, s_z, s_n);
 -- šifter
-p_sifter: shifter16 port map (s_alu_out, s_sh(1), s_sh(0), s_c_bus);
 --Korak 9
 process(s_t3, s_b_latch, s_mar)
  variable v_mar_latch : std_logic_vector(11 downto 0);
@@ -249,21 +253,24 @@ begin
  s_mar_latch <= "0000" & v_mar_latch;
 end process;
 
-p_mseq: mseq port map(s_cond, s_n, s_z, s_seq_out);
--- mmux TODO Zamijeniti sa oct2to1mux
+
+--mmux
 process(s_seq_out, s_mpc_out_inc, s_mir_adresa)
 begin
  if s_seq_out = '0' then
- s_mmux_out <= s_mpc_out_inc;
+ s_oct2to1mux_out <= s_mpc_out_inc;
  elsif s_seq_out = '1' then
- s_mmux_out <= s_mir_adresa;
+ s_oct2to1mux_out <= s_mir_adresa;
  end if;
-end process;
-process(s_t4, s_mbr, s_rd, s_wr, s_enc, s_c, s_c_bus, s_mmux_out)
+end process;
+
+
+
+process(s_t4, s_mbr, s_rd, s_wr, s_enc, s_c, s_c_bus, s_oct2to1mux_out)
  variable v_c_dek_out : std_logic_vector(15 downto 0);
 begin
  if (s_t4 = '1') then
- s_mpc_out <= s_mmux_out;
+ s_mpc_out <= s_oct2to1mux_out;
  if (s_enc = '1') then
  case s_c is
  when "0000" => v_c_dek_out := "0000000000000001";

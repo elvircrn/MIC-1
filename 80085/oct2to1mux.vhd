@@ -34,8 +34,12 @@ architecture Behavioral of oct2to1mux is
 
 begin
 
-y0 <= x1 when c = '1' else
-                x0;
-					 
+process(x0, x1, c)
+begin
+	if (c = '1') then
+		y0 <= x1;
+	else
+		y0 <= x0;
+	end if;
+end process;
 end Behavioral;
-
