@@ -1,5 +1,7 @@
 vhdl work "shifter16.vhd"
+vhdl work "oct2to1mux.vhd"
 vhdl work "mseq.vhd"
+vhdl work "hex2u1mux.vhd"
 vhdl work "distributer.vhd"
 vhdl work "decoder.vhd"
 vhdl work "alu.vhd"

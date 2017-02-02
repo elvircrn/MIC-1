@@ -10,8 +10,8 @@
 //  \___\/\___\
 ////////////////////////////////////////////////////////////////////////////////
 
-#ifndef H_Work_mseq_behavioral_H
-#define H_Work_mseq_behavioral_H
+#ifndef H_Work_hex2u1mux_behavioral_H
+#define H_Work_hex2u1mux_behavioral_H
 #ifdef __MINGW32__
 #include "xsimMinGW.h"
 #else
@@ -19,13 +19,13 @@
 #endif
 
 
-class Work_mseq_behavioral: public HSim__s6 {
+class Work_hex2u1mux_behavioral: public HSim__s6 {
 public:
 
     HSim__s1 SE[4];
 
-    Work_mseq_behavioral(const char * name);
-    ~Work_mseq_behavioral();
+    Work_hex2u1mux_behavioral(const char * name);
+    ~Work_hex2u1mux_behavioral();
     void constructObject();
     void constructPorts();
     void reset();
@@ -35,6 +35,6 @@ public:
 
 
 
-HSim__s6 *createWork_mseq_behavioral(const char *name);
+HSim__s6 *createWork_hex2u1mux_behavioral(const char *name);
 
 #endif

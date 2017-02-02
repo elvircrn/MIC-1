@@ -2,10 +2,36 @@
    ./cpu_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  57403
-ERROR:Simulator:29 - at 0 ns : in cpu(Behavioral), file
-   C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd: Default port map for
-   entity shifter16 to component shifter16 connects std_logic_vector type local
-   port data_out of the component to BIT_VECTOR type port of the entity.
+     -ipcport  63410
 
-ERROR:Simulator:29 - at 0 ns : 
+Thu Feb 02 03:33:59 2017
+
+Total Line Count : 348
+
+ Elaboration time : 0 sec.
+
+ Estimate current memory usage : 155.628 Meg. 
+
+ Total Signals          : 101
+ Total Nets             : 636
+ Total Signal Drivers   : 52
+ Total Blocks           : 15
+ Total Primitive Blocks : 10
+ Total Processes        : 14
+ Total Traceable Variables  : 0
+ Total Scalar Nets and Variables : 636
+ntrace select -o on -m / -l this 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+WARNING:Simulator:29 - at 0 ns: Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an
+   arithmetic operand, the result will be 'X'(es).
+WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
+   'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
+   'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
+   'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
+   'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+Finished circuit initialization process.
