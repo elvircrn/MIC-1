@@ -1,26 +1,33 @@
  command line:
-   ./cpu_isim_beh.exe
+   ./cputest_vhd_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  63410
+     -ipcport  63516
 
-Thu Feb 02 03:33:59 2017
+Thu Feb 02 04:07:27 2017
 
-Total Line Count : 348
+Total Line Count : 376
 
- Elaboration time : 0 sec.
+ Elaboration time : 0.015625 sec.
 
- Estimate current memory usage : 155.628 Meg. 
+ Estimate current memory usage : 155.701 Meg. 
 
- Total Signals          : 101
+ Total Signals          : 107
  Total Nets             : 636
- Total Signal Drivers   : 52
- Total Blocks           : 15
+ Total Signal Drivers   : 53
+ Total Blocks           : 16
  Total Primitive Blocks : 10
- Total Processes        : 14
+ Total Processes        : 15
  Total Traceable Variables  : 0
  Total Scalar Nets and Variables : 636
-ntrace select -o on -m / -l this 
+ntrace select -o on -n /cputest_vhd/clk 
+ntrace select -o on -n /cputest_vhd/reset 
+ntrace select -o on -n /cputest_vhd/podaci 
+ntrace select -o on -n /cputest_vhd/adresa 
+ntrace select -o on -n /cputest_vhd/rd 
+ntrace select -o on -n /cputest_vhd/wr 
+ntrace select -o on -n /cputest_vhd/uut/sp 
+ntrace select -o on -n /cputest_vhd/uut/rom/data 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.

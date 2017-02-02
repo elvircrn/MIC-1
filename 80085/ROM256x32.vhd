@@ -37,7 +37,7 @@ end entity ROM256x32;
 architecture behavioral of ROM256x32 is
   type mem is array ( 0 to 2**8 - 1) of std_logic_vector(31 downto 0);
   constant my_Rom : mem := (
-    0  => "00011010001100010000000000000000",
+    0  =>     "00000000010100100010011100000000",
 	 others => "00000000000000000000000000000000");
 begin
    process (address)

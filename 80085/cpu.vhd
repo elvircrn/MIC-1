@@ -67,22 +67,22 @@ signal s_seq_out : std_logic;
 signal s_mmux_out : std_logic_vector(7 downto 0);
 
 --Korak 5
-signal pc : std_logic_vector (15 downto 0);
-signal ac : std_logic_vector (15 downto 0);
-signal sp : std_logic_vector (15 downto 0);
-signal ir : std_logic_vector (15 downto 0);
-signal tir : std_logic_vector (15 downto 0);
+signal pc : std_logic_vector (15 downto 0) := x"0000";
+signal ac : std_logic_vector (15 downto 0) := x"0000";
+signal sp : std_logic_vector (15 downto 0) := x"0000";
+signal ir : std_logic_vector (15 downto 0) := x"0000";
+signal tir : std_logic_vector (15 downto 0) := x"0000";
 signal zero : std_logic_vector (15 downto 0) := x"0000" ;
 signal p_one : std_logic_vector (15 downto 0) := x"0001";
 signal n_one : std_logic_vector (15 downto 0) := x"1111";
-signal amask : std_logic_vector (15 downto 0);
-signal smask : std_logic_vector (15 downto 0);
-signal a : std_logic_vector (15 downto 0);
-signal b : std_logic_vector (15 downto 0);
-signal c : std_logic_vector (15 downto 0);
-signal d : std_logic_vector (15 downto 0);
-signal e : std_logic_vector (15 downto 0);
-signal f : std_logic_vector (15 downto 0);
+signal amask : std_logic_vector (15 downto 0) := x"0000";
+signal smask : std_logic_vector (15 downto 0) := x"0000";
+signal a : std_logic_vector (15 downto 0) := x"0000";
+signal b : std_logic_vector (15 downto 0) := x"0000";
+signal c : std_logic_vector (15 downto 0) := x"0000";
+signal d : std_logic_vector (15 downto 0) := x"0000";
+signal e : std_logic_vector (15 downto 0) := x"0000";
+signal f : std_logic_vector (15 downto 0) := x"0000";
 
 component distributer
 	port (

@@ -1,4 +1,12 @@
-V3 3
+V3 14
+FL C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd 2017/02/02.03:23:02 J.36
+EN work/cpu 1486003033 FL C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd \
+      PB ieee/std_logic_1164 1177545575 PB ieee/std_logic_arith 1177545576 \
+      PB ieee/STD_LOGIC_UNSIGNED 1177545583
+AR work/cpu/Behavioral 1486003034 \
+      FL C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd EN work/cpu 1486003033 \
+      CP distributer CP rom256x32 CP decoder CP alu CP shifter16 CP mseq CP oct2to1mux \
+      CP hex2u1mux
 FL C:/Users/elvircrn/Documents/codes2/80085/80085/DEC4x16.vhd 2017/02/01.22:58:56 J.36
 EN work/DEC4x16 1485986362 \
       FL C:/Users/elvircrn/Documents/codes2/80085/80085/DEC4x16.vhd \
