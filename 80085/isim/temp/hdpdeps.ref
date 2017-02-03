@@ -1,10 +1,18 @@
-V3 82
+V3 85
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/alu.vhd 2017/02/03.00:21:11 J.36
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd 2017/02/03.00:40:24 J.36
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu_tb.vhd 2017/02/03.00:37:57 J.36
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/decoder.vhd 2017/02/03.00:40:02 J.36
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/distributer.vhd 2017/02/03.00:21:11 J.36
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/hex2u1mux.vhd 2017/02/03.00:21:11 J.36
+FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/marcomp.vhd 2017/02/03.06:53:07 J.36
+EN isim_temp/marcomp 1486101192 \
+      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/marcomp.vhd \
+      PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
+      PB ieee/STD_LOGIC_UNSIGNED 1179176991
+AR isim_temp/marcomp/Behavioral 1486101193 \
+      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/marcomp.vhd \
+      EN isim_temp/marcomp 1486101192
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/mseq.vhd 2017/02/03.00:21:12 J.36
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/oct2to1mux.vhd 2017/02/03.00:21:12 J.36
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/registri.vhd 2017/02/03.00:40:10 J.36

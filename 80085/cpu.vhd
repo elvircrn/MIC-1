@@ -40,10 +40,7 @@ end cpu;
 
 architecture Behavioral of cpu is
 
---signal s_mpc_reg : std_logic_vector (7 downto 0) :=x"00" ;
-signal s_mir_reg : std_logic_vector (31 downto 0);
 signal s_rom_out : std_logic_vector (31 downto 0);
-signal s_mir : std_logic_vector(31 downto 0);
 signal s_t1, s_t2, s_t3, s_t4 : std_logic;
 signal s_amux : std_logic; 
 signal s_cond, s_alu, s_sh : std_logic_vector(1 downto 0);
@@ -109,7 +106,7 @@ end component;
 
 component decoder
 	port ( enc : in std_logic_vector(3 downto 0);
-			 en  : in std_logic; -- Enable signal
+			 en  : in std_logic; 
 			 dec : out std_logic_vector(15 downto 0);
 			 s_decoded : buffer std_logic
 	);
@@ -161,13 +158,15 @@ port(
 );
 end component;
 
-begin
+component marcomp
+	port (
+		s_t3, s_mar : in std_logic;
+		s_b_latch : in std_logic_vector(15 downto 0);
+		adresa : out std_logic_vector (11 downto 0)
+	);
+end component;
 
---TODO
---Testirati control flow
---Popraviti reset(ako se koristi, vrijednost registra postane undefined)
---Popraviti vrijeme citanja iz ROM-a
---Odvojiti registre u posebnu komponentu (ne znam treba li)
+begin
 
 --Mapiranje
 p_fazni_sat : distributer port map (clk, reset, s_t1, s_t2, s_t3, s_t4);
@@ -182,27 +181,8 @@ mmux : oct2to1mux port map(s_mpc_out_inc, s_mir_adresa, s_mmux_out, s_seq_out);
 amux : hex2u1mux port map (s_a_latch, s_mbr_latch, s_amux_out, s_amux);
 registers : registri port map(s_a_dek_out, s_b_dek_out, s_c_dek_out, s_enc, reset, s_a_latch, s_b_latch, s_c_bus, s_t2, s_c_decoded);
 incr : incrementer port map(s_mpc_out, s_mpc_out_inc, s_t2);
-mir : mircomp port map(
-s_rom_out,
-s_amux,
-s_cond, s_alu, s_sh,
-s_mbr, s_mar, s_rd, s_wr, s_enc,
-s_c, s_b, s_a,
-s_mir_adresa,
-s_t1
-);
-
-
---Ciklus 3
-process(s_t3)
- variable v_mar_latch : std_logic_vector(11 downto 0);
-begin
- if (s_t3 = '1' and s_mar = '1') then
-	v_mar_latch := s_b_latch(11 downto 0);
-	adresa <= v_mar_latch;
-	s_mar_latch <= "0000" & v_mar_latch;
- end if;
-end process;
+mir : mircomp port map(s_rom_out, s_amux, s_cond, s_alu, s_sh, s_mbr, s_mar, s_rd, s_wr, s_enc, s_c, s_b, s_a, s_mir_adresa, s_t1);
+mar : marcomp port map(s_t3, s_mar, s_b_latch, adresa);
 
 --Ciklus 4
 process(s_t4)
