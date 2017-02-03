@@ -29,17 +29,18 @@ entity decoder is
 	port ( enc : in std_logic_vector(3 downto 0);
 			 en  : in std_logic; -- Enable signal
 			 dec : out std_logic_vector(15 downto 0);
-			 s_t : in std_logic
+			 s_decoded : out std_logic
 	);
 end decoder;
 
 architecture Behavioral of decoder is
 begin
-process(s_t, enc) 
+process(en, enc) 
 begin
-	if (en = '1' and s_t = '1') then
+	if (en = '1') then
 		dec <= (others => '0');
 		dec(conv_integer(enc)) <= '1';
+		s_decoded <= '1';
 	end if;
 end process;
 end Behavioral;

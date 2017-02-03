@@ -40,7 +40,7 @@ end cpu;
 
 architecture Behavioral of cpu is
 
-signal s_mpc_reg : std_logic_vector (7 downto 0) :=x"00" ;
+--signal s_mpc_reg : std_logic_vector (7 downto 0) :=x"00" ;
 signal s_mir_reg : std_logic_vector (31 downto 0);
 signal s_rom_out : std_logic_vector (31 downto 0);
 signal s_mir : std_logic_vector(31 downto 0);
@@ -61,8 +61,7 @@ signal s_z, s_n : std_logic;
 signal s_c_bus : std_logic_vector(15 downto 0);
 signal s_seq_out : std_logic;
 signal s_mmux_out : std_logic_vector(7 downto 0);
-
-
+signal s_c_decoded, dummy : std_logic := '0';
 
 component distributer
 	port (
@@ -86,11 +85,11 @@ component ROM256x32
 end component;
 
 component decoder
-		port ( enc : in std_logic_vector(3 downto 0);
-			 en  : in std_logic;
+	port ( enc : in std_logic_vector(3 downto 0);
+			 en  : in std_logic; -- Enable signal
 			 dec : out std_logic_vector(15 downto 0);
-			 s_t : in std_logic
-			);
+			 s_decoded : out std_logic
+	);
 end component;
 
 component mseq 
@@ -111,7 +110,8 @@ component registri
 		a_bus : out std_logic_vector (15 downto 0);
 		b_bus : out std_logic_vector (15 downto 0);
 		c_bus : in std_logic_vector (15 downto 0);
-		s_t2 : in std_logic
+		s_t2 : in std_logic; 
+		s_c_decoded : in std_logic
 	);
 end component;
 
@@ -144,29 +144,27 @@ begin
 --Testirati control flow
 --Popraviti reset(ako se koristi, vrijednost registra postane undefined)
 --Popraviti vrijeme citanja iz ROM-a
---Implementovati U/I komunikaciju
 --Odvojiti registre u posebnu komponentu (ne znam treba li)
 
 --Mapiranje
 p_fazni_sat : distributer port map (clk, reset, s_t1, s_t2, s_t3, s_t4);
-rom : rom256x32 port map (s_mpc_reg, s_rom_out);
-decoder_1 : decoder port map (s_a, '1', s_a_dek_out, '1');
-decoder_2 : decoder port map (s_b, '1', s_b_dek_out, '1');
-decoder_3 : decoder port map (s_c, '1', s_c_dek_out, s_t4);
+rom : rom256x32 port map (s_mpc_out, s_rom_out);
+decoder_1 : decoder port map (s_a, '1', s_a_dek_out, dummy);
+decoder_2 : decoder port map (s_b, '1', s_b_dek_out, dummy);
+decoder_3 : decoder port map (s_c, s_t4, s_c_dek_out, s_c_decoded);
 p_alu: alu port map (s_amux_out, s_b_latch, s_alu(0), s_alu(1), s_alu_out, s_z, s_n);
 p_sifter: shifter16 port map (s_alu_out, s_sh(1), s_sh(0), s_c_bus);
 p_mseq: mseq port map(s_cond, s_n, s_z, s_seq_out);
 mmux : oct2to1mux port map(s_mpc_out_inc, s_mir_adresa, s_mmux_out, s_seq_out);
 amux : hex2u1mux port map (s_a_latch, s_mbr_latch, s_amux_out, s_amux);
-registers : registri port map(s_a_dek_out, s_b_dek_out, s_c_dek_out, s_enc, reset, s_a_latch, s_b_latch, s_c_bus, s_t2);
-
-
+registers : registri port map(s_a_dek_out, s_b_dek_out, s_c_dek_out, s_enc, reset, s_a_latch, s_b_latch, s_c_bus, s_t2, s_c_decoded);
 
 --Ciklus 1
 process (s_t1)
 	variable v_mir : std_logic_vector (31 downto 0);
 	begin
 		if s_t1 = '1' then
+			s_c_decoded <= '0';
 			v_mir := s_rom_out;
 			s_amux <= v_mir(31);
 			s_cond <= v_mir(30 downto 29);
@@ -202,7 +200,6 @@ begin
 	v_mar_latch := s_b_latch(11 downto 0);
 	adresa <= v_mar_latch;
 	s_mar_latch <= "0000" & v_mar_latch;
-	--s_c_decoded <= '0';
  end if;
 end process;
 

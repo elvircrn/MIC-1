@@ -13,7 +13,8 @@ entity registri is
 		a_bus : out std_logic_vector (15 downto 0);
 		b_bus : out std_logic_vector (15 downto 0);
 		c_bus : in std_logic_vector (15 downto 0);
-		s_t2 : in std_logic
+		s_t2 : in std_logic; 
+		s_c_decoded : in std_logic
 	);
 end registri;
 
@@ -37,7 +38,7 @@ signal e : std_logic_vector (15 downto 0) := x"0000";
 signal f : std_logic_vector (15 downto 0) := x"0000";
 
 begin
-	process (c_adr, reset, s_t2)
+	process (s_c_decoded, reset, s_t2)
 	begin
 	
 		-- iz registra na sabirnicu
@@ -80,7 +81,7 @@ begin
 				when "1000000000000000" => b_bus <= f;
 				when others => b_bus <= "ZZZZZZZZZZZZZZZZ";
 			end case;
-		elsif (enc = '1' and c_adr'event) then
+		elsif (enc = '1' and s_c_decoded'event and s_c_decoded = '1') then
 			case c_adr is
 				when "0000000000000001" => pc <= c_bus;
 				when "0000000000000010" => ac <= c_bus;

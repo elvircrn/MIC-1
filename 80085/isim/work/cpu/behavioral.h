@@ -24,7 +24,7 @@ public:
 
     HSim__s1 SE[6];
 
-    HSim__s1 SA[37];
+    HSim__s1 SA[38];
     Work_cpu_behavioral(const char * name);
     ~Work_cpu_behavioral();
     void constructObject();

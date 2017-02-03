@@ -26,8 +26,8 @@ public:
 
   HSimArrayType Membase;
   HSimArrayType Mem;
-  char *t3;
-HSim__s4 CA;
+  char *t0;
+HSim__s4 CD;
     Work_rom256x32_behavioral(const char * name);
     ~Work_rom256x32_behavioral();
     void constructObject();

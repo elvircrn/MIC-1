@@ -19,7 +19,7 @@ SIGNAL_LIST_END
 SIGNALS_NOT_ON_DISPLAY
 SIGNALS_NOT_ON_DISPLAY_END
 MARKER_LIST_BEGIN
-867603589
+888105006
 MARKER_LIST_END
 MEASURE_LIST_BEGIN
 MEASURE_LIST_END
@@ -30,7 +30,9 @@ SIGNAL_ORDER_BEGIN
 /cpu_tb_vhd/uut/s_t2
 /cpu_tb_vhd/uut/s_t3
 /cpu_tb_vhd/uut/s_t4
+/cpu_tb_vhd/uut/s_c_decoded
 /cpu_tb_vhd/uut/s_amux
+/cpu_tb_vhd/uut/dummy
 /cpu_tb_vhd/uut/s_alu
 /cpu_tb_vhd/uut/s_enc
 /cpu_tb_vhd/uut/s_a
@@ -77,7 +79,13 @@ SIGPROPS_BEGIN
 /cpu_tb_vhd/uut/s_t4
 2
 2
+/cpu_tb_vhd/uut/s_c_decoded
+2
+2
 /cpu_tb_vhd/uut/s_amux
+2
+2
+/cpu_tb_vhd/uut/dummy
 2
 2
 /cpu_tb_vhd/uut/s_alu

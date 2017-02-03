@@ -22,7 +22,7 @@
 class Work_registri_behavioral: public HSim__s6 {
 public:
 
-    HSim__s1 SE[9];
+    HSim__s1 SE[10];
 
     HSim__s1 SA[16];
     Work_registri_behavioral(const char * name);

@@ -2,31 +2,33 @@
    ./cpu_tb_vhd_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  49859
+     -ipcport  49977
 
-Fri Feb 03 00:31:01 2017
+Fri Feb 03 01:22:31 2017
 
-Total Line Count : 407
+Total Line Count : 429
 
  Elaboration time : 0.015625 sec.
 
- Estimate current memory usage : 155.779 Meg. 
+ Estimate current memory usage : 155.804 Meg. 
 
- Total Signals          : 118
- Total Nets             : 622
- Total Signal Drivers   : 55
+ Total Signals          : 120
+ Total Nets             : 613
+ Total Signal Drivers   : 59
  Total Blocks           : 17
  Total Primitive Blocks : 11
  Total Processes        : 16
  Total Traceable Variables  : 0
- Total Scalar Nets and Variables : 622
+ Total Scalar Nets and Variables : 613
 ntrace select -o on -n /cpu_tb_vhd/clk 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_rom_out 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t1 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t2 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t3 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t4 
+ntrace select -o on -n /cpu_tb_vhd/uut/s_c_decoded 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_amux 
+ntrace select -o on -n /cpu_tb_vhd/uut/dummy 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_alu 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_enc 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_a 
@@ -59,3 +61,4 @@ WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
 WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
    'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 Finished circuit initialization process.
+isimrun 1000 ns 

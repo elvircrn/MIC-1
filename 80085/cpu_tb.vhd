@@ -101,6 +101,29 @@ BEGIN
 		clk <= '1';
 		wait for 100 ns;
 		
+		--jedna
+		
+				
+	clk <= '0';
+		wait for 100 ns;
+		clk <= '1';
+		wait for 100 ns;
+		
+		clk <= '0';
+		wait for 100 ns;
+		clk <= '1';
+		wait for 100 ns;
+		
+		clk <= '0';
+		wait for 100 ns;
+		clk <= '1';
+		wait for 100 ns;
+		
+		clk <= '0';
+		wait for 100 ns;
+		clk <= '1';
+		wait for 100 ns;
+		
 		
 		wait; -- will wait forever
 	END PROCESS;
