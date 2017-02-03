@@ -43,23 +43,23 @@ begin
 	begin
 	
 	-- reset
-	if (rising_edge(reset)) then
-	pc <= x"0000";
-	ac <= x"0000";
-	sp <= x"0000";
-	ir <= x"0000";
-	tir <= x"0000";
-	zero <= x"0000";
-	p_one <= x"0001";
-	n_one <= x"FFFF";
-	amask <= x"0000";
-	smask <= x"0000";
-	a <= x"0000";
-	b <= x"0000";
-	c <= x"0000";
-	d <= x"0000";
-	e <= x"0000";
-	f <= x"0000";
+	if (reset = '1' and reset'event) then
+		pc <= x"0000";
+		ac <= x"0000";
+		sp <= x"0000";
+		ir <= x"0000";
+		tir <= x"0000";
+		zero <= x"0000";
+		p_one <= x"0001";
+		n_one <= x"FFFF";
+		amask <= x"0000";
+		smask <= x"0000";
+		a <= x"0000";
+		b <= x"0000";
+		c <= x"0000";
+		d <= x"0000";
+		e <= x"0000";
+		f <= x"0000";
 	end if;
 	
 		-- iz registra na sabirnicu

@@ -32,7 +32,7 @@ entity mircomp is
 		s_rom_out : in std_logic_vector (31 downto 0);
 		s_amux : out std_logic; 
 		s_cond, s_alu, s_sh : out std_logic_vector(1 downto 0);
-		s_mbr, s_mar, s_rd, s_wr, s_enc : out std_logic;
+		s_mbr, s_mar, s_rd, s_wr, rd, wr, s_enc : out std_logic;
 		s_c, s_b, s_a : out std_logic_vector(3 downto 0);
 		s_mir_adresa : out std_logic_vector(7 downto 0);
 		s_t1 : in std_logic
@@ -56,7 +56,9 @@ begin
 			s_mbr <= v_mir(24);
 			s_mar <= v_mir(23);
 			s_rd <= v_mir(22);
+			rd <= v_mir(22);
 			s_wr <= v_mir(21);
+			wr <= v_mir(21);
 			s_enc <= v_mir(20);
 			s_c <= v_mir(19 downto 16);
 			s_b <= v_mir(15 downto 12);

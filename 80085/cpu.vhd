@@ -31,7 +31,7 @@ entity cpu is
     port (
              clk : in std_logic;
              reset : in std_logic;
-             adresa : out std_logic_vector (11 downto 0);
+             adresa : out std_logic_vector (15 downto 0);
              podaci : inout std_logic_vector (15 downto 0);
              rd : out std_logic;
              wr : out std_logic
@@ -84,7 +84,7 @@ component mircomp
 		s_rom_out : in std_logic_vector (31 downto 0);
 		s_amux : out std_logic; 
 		s_cond, s_alu, s_sh : out std_logic_vector(1 downto 0);
-		s_mbr, s_mar, s_rd, s_wr, s_enc : out std_logic;
+		s_mbr, s_mar, s_rd, s_wr, rd, wr, s_enc : out std_logic;
 		s_c, s_b, s_a : out std_logic_vector(3 downto 0);
 		s_mir_adresa : out std_logic_vector(7 downto 0);
 		s_t1 : in std_logic
@@ -164,7 +164,7 @@ component marcomp
 	port (
 		s_t3, s_mar : in std_logic;
 		s_b_latch : in std_logic_vector(15 downto 0);
-		adresa : out std_logic_vector (11 downto 0)
+		adresa : out std_logic_vector (15 downto 0)
 	);
 end component;
 
@@ -197,11 +197,7 @@ end component;
 begin
 
 --TODO 
---Provjeriti velicinu mar latcha
---rd i wr <= s_rd i s_wr
 --preloadati instrukcije
---izbaciti rising edge i/ili inicijalizirati SVE signale
---dodati mpcreg komponentu i uvezati
 
 --Mapiranje
 p_fazni_sat : distributer port map (clk, reset, s_t1, s_t2, s_t3, s_t4);
@@ -217,7 +213,8 @@ p_amux : hex2u1mux port map (s_a_latch, s_mbr_latch, s_amux_out, s_amux);
 p_registri : registri port map(s_a_dek_out, s_b_dek_out, s_c_dek_out, s_enc, reset, s_a_bus, s_b_bus, s_c_bus, 
 s_a_decoded, s_b_decoded, s_c_decoded);
 p_inkrementer : incrementer port map(s_mpc_out, s_mpc_out_inc, s_t2);
-p_mir : mircomp port map(s_rom_out, s_amux, s_cond, s_alu, s_sh, s_mbr, s_mar, s_rd, s_wr, s_enc, s_c, s_b, s_a, s_mir_adresa, s_t1);
+p_mir : mircomp port map(s_rom_out, s_amux, s_cond, s_alu, s_sh, s_mbr, s_mar, s_rd, s_wr, 
+rd, wr, s_enc, s_c, s_b, s_a, s_mir_adresa, s_t1);
 p_mar : marcomp port map(s_t3, s_mar, s_b_latch, adresa);
 p_a_lec : ab_latches port map(s_t2, s_a_bus, s_a_latch);
 p_b_lec : ab_latches port map(s_t2, s_b_bus, s_b_latch);

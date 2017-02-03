@@ -42,7 +42,7 @@ ARCHITECTURE behavior OF cpu_tb_vhd IS
 		clk : IN std_logic;
 		reset : IN std_logic;    
 		podaci : INOUT std_logic_vector(15 downto 0);      
-		adresa : OUT std_logic_vector(11 downto 0);
+		adresa : OUT std_logic_vector(15 downto 0);
 		rd : OUT std_logic;
 		wr : OUT std_logic
 		);
@@ -56,7 +56,7 @@ ARCHITECTURE behavior OF cpu_tb_vhd IS
 	SIGNAL podaci :  std_logic_vector(15 downto 0);
 
 	--Outputs
-	SIGNAL adresa :  std_logic_vector(11 downto 0);
+	SIGNAL adresa :  std_logic_vector(15 downto 0);
 	SIGNAL rd :  std_logic;
 	SIGNAL wr :  std_logic;
 

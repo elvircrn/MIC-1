@@ -13,22 +13,22 @@ EN work/ALU 1486093491 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/alu.vhd \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
 AR work/ALU/Behavioral 1486093492 \
       FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/alu.vhd EN work/ALU 1486093491
-FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd 2017/02/03.15:08:31 J.36
-EN work/cpu 1486130937 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd \
+FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd 2017/02/03.15:20:12 J.36
+EN work/cpu 1486131736 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/cpu/Behavioral 1486130938 \
-      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd EN work/cpu 1486130937 \
+AR work/cpu/Behavioral 1486131737 \
+      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd EN work/cpu 1486131736 \
       CP distributer CP rom256x32 CP decoder CP alu CP shifter16 CP mseq CP oct2to1mux \
       CP hex2u1mux CP registri CP incrementer CP mircomp CP marcomp CP ab_latches \
       CP mbrcomp CP mpc
-FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu_tb.vhd 2017/02/03.05:00:58 J.36
-EN work/cpu_tb_vhd 1486130939 \
+FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu_tb.vhd 2017/02/03.15:22:08 J.36
+EN work/cpu_tb_vhd 1486131738 \
       FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu_tb.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/STD_LOGIC_UNSIGNED 1179176991 \
       PB ieee/NUMERIC_STD 1179176997
-AR work/cpu_tb_vhd/behavior 1486130940 \
-      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu_tb.vhd EN work/cpu_tb_vhd 1486130939 \
+AR work/cpu_tb_vhd/behavior 1486131739 \
+      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu_tb.vhd EN work/cpu_tb_vhd 1486131738 \
       CP cpu
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/decoder.vhd 2017/02/03.02:11:39 J.36
 EN work/decoder 1486093489 \
@@ -60,27 +60,27 @@ EN work/incrementer 1486093503 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
 AR work/incrementer/Behavioral 1486093504 \
       FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/incr.vhd EN work/incrementer 1486093503
-FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/marcomp.vhd 2017/02/03.06:53:07 J.36
-EN work/marcomp 1486101204 \
+FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/marcomp.vhd 2017/02/03.15:16:24 J.36
+EN work/marcomp 1486131648 \
       FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/marcomp.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/marcomp/Behavioral 1486101205 \
-      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/marcomp.vhd EN work/marcomp 1486101204
-FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/mbrcomp.vhd 2017/02/03.07:29:57 J.36
-EN work/mbrcomp 1486103413 \
+AR work/marcomp/Behavioral 1486131649 \
+      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/marcomp.vhd EN work/marcomp 1486131648
+FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/mbrcomp.vhd 2017/02/03.15:16:36 J.36
+EN work/mbrcomp 1486131650 \
       FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/mbrcomp.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/mbrcomp/Behavioral 1486103414 \
-      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/mbrcomp.vhd EN work/mbrcomp 1486103413
-FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/mircomp.vhd 2017/02/03.05:00:44 J.36
-EN work/mircomp 1486094461 \
+AR work/mbrcomp/Behavioral 1486131651 \
+      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/mbrcomp.vhd EN work/mbrcomp 1486131650
+FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/mircomp.vhd 2017/02/03.15:21:13 J.36
+EN work/mircomp 1486131734 \
       FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/mircomp.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/mircomp/Behavioral 1486094462 \
-      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/mircomp.vhd EN work/mircomp 1486094461
+AR work/mircomp/Behavioral 1486131735 \
+      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/mircomp.vhd EN work/mircomp 1486131734
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/mpc.vhd 2017/02/03.15:07:06 J.36
 EN work/mpc 1486130935 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/mpc.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
@@ -101,13 +101,13 @@ EN work/oct2to1mux 1486093497 \
 AR work/oct2to1mux/Behavioral 1486093498 \
       FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/oct2to1mux.vhd \
       EN work/oct2to1mux 1486093497
-FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/registri.vhd 2017/02/03.07:16:28 J.36
-EN work/registri 1486102596 \
+FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/registri.vhd 2017/02/03.15:10:57 J.36
+EN work/registri 1486131625 \
       FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/registri.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/registri/Behavioral 1486102597 \
-      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/registri.vhd EN work/registri 1486102596
+AR work/registri/Behavioral 1486131626 \
+      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/registri.vhd EN work/registri 1486131625
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/ROM256x32.vhd 2017/02/03.06:50:47 J.36
 EN work/ROM256x32 1486101055 \
       FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/ROM256x32.vhd \
