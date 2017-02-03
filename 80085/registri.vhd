@@ -41,6 +41,26 @@ begin
 	process (s_c_decoded, reset, s_t2)
 	begin
 	
+	-- reset
+if (rising_edge(reset)) then
+pc <= x"0000";
+ac <= x"0000";
+sp <= x"0000";
+ir <= x"0000";
+tir <= x"0000";
+zero <= x"0000";
+p_one <= x"0001";
+n_one <= x"FFFF";
+amask <= x"0000";
+smask <= x"0000";
+a <= x"0000";
+b <= x"0000";
+c <= x"0000";
+d <= x"0000";
+e <= x"0000";
+f <= x"0000";
+end if;
+	
 		-- iz registra na sabirnicu
 		if(s_t2 = '1') then 
 			case a_adr is

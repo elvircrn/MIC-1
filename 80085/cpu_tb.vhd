@@ -76,56 +76,16 @@ BEGIN
 	BEGIN
 	
 	
-	
-
 		-- Wait 100 ns for global reset to finish
 		wait for 100 ns;
 		
-	clk <= '0';
+		clk <= '0';
 	
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
-		
-		clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
-		
-		clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
-		
-		clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
-		
-		--jedna
-		
+		for i in 0 to 99 loop
+			wait for 100 ns;
+			clk <= clk xor '1';
+		end loop;
 				
-	clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
-		
-		clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
-		
-		clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
-		
-		clk <= '0';
-		wait for 100 ns;
-		clk <= '1';
-		wait for 100 ns;
-		
-		
 		wait; -- will wait forever
 	END PROCESS;
 
