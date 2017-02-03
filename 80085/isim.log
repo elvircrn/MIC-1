@@ -2,24 +2,24 @@
    ./cpu_tb_vhd_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  58960
+     -ipcport  51510
 
-Fri Feb 03 04:34:05 2017
+Fri Feb 03 05:01:05 2017
 
 Total Line Count : 453
 
- Elaboration time : 0.03125 sec.
+ Elaboration time : 0 sec.
 
- Estimate current memory usage : 155.877 Meg. 
+ Estimate current memory usage : 156.017 Meg. 
 
- Total Signals          : 140
- Total Nets             : 613
- Total Signal Drivers   : 60
+ Total Signals          : 139
+ Total Nets             : 645
+ Total Signal Drivers   : 58
  Total Blocks           : 19
  Total Primitive Blocks : 13
  Total Processes        : 16
  Total Traceable Variables  : 0
- Total Scalar Nets and Variables : 613
+ Total Scalar Nets and Variables : 645
 ntrace select -o on -n /cpu_tb_vhd/clk 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_rom_out 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t1 
@@ -51,6 +51,10 @@ ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/f0
 ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/f1 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/y0 
 ntrace select -o on -n /cpu_tb_vhd/uut/registers/sp 
+ntrace select -o on -n /cpu_tb_vhd/uut/mir/s_alu 
+ntrace select -o on -n /cpu_tb_vhd/uut/mir/s_sh 
+ntrace select -o on -n /cpu_tb_vhd/uut/mir/s_amux 
+ntrace select -o on -n /cpu_tb_vhd/uut/mir/s_a 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.
@@ -61,5 +65,3 @@ WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
 WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
    'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 Finished circuit initialization process.
-WARNING:Simulator:29 - at 700.000 ns(2): Warning: CONV_INTEGER: There is an
-   'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.

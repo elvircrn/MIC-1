@@ -29,26 +29,25 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity mircomp is
 	port(
-		s_mir_reg : inout std_logic_vector (31 downto 0);
-		s_rom_out : inout std_logic_vector (31 downto 0);
-		s_mir : inout std_logic_vector(31 downto 0);
-		s_amux : inout std_logic; 
-		s_cond, s_alu, s_sh : inout std_logic_vector(1 downto 0);
-		s_mbr, s_mar, s_rd, s_wr, s_enc : inout std_logic;
-		s_c, s_b, s_a : inout std_logic_vector(3 downto 0);
-		s_mir_adresa : inout std_logic_vector(7 downto 0);
+		s_rom_out : in std_logic_vector (31 downto 0);
+		s_amux : out std_logic; 
+		s_cond, s_alu, s_sh : out std_logic_vector(1 downto 0);
+		s_mbr, s_mar, s_rd, s_wr, s_enc : out std_logic;
+		s_c, s_b, s_a : out std_logic_vector(3 downto 0);
+		s_mir_adresa : out std_logic_vector(7 downto 0);
 		s_t1 : in std_logic
 	);
 end mircomp;
 
 architecture Behavioral of mircomp is
---Ciklus 1
+
+signal s_mir : std_logic_vector(31 downto 0);
+
 begin
 process (s_t1)
 	variable v_mir : std_logic_vector (31 downto 0);
 begin
-		if (rising_edge(s_t1)) then
-			--s_c_decoded <= '0';
+		if (s_t1 = '1') then
 			v_mir := s_rom_out;
 			s_amux <= v_mir(31);
 			s_cond <= v_mir(30 downto 29);
@@ -63,7 +62,7 @@ begin
 			s_b <= v_mir(15 downto 12);
 			s_a <= v_mir(11 downto 8);
 			s_mir_adresa <= v_mir(7 downto 0);
-			s_mir <= v_mir; -- Stavio unutar if-a
+			s_mir <= v_mir; 
 		end if;
 	end process;
 		

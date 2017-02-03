@@ -83,14 +83,12 @@ end component;
 
 component mircomp
 	port(
-		s_mir_reg : inout std_logic_vector (31 downto 0);
-		s_rom_out : inout std_logic_vector (31 downto 0);
-		s_mir : inout std_logic_vector(31 downto 0);
-		s_amux : inout std_logic; 
-		s_cond, s_alu, s_sh : inout std_logic_vector(1 downto 0);
-		s_mbr, s_mar, s_rd, s_wr, s_enc : inout std_logic;
-		s_c, s_b, s_a : inout std_logic_vector(3 downto 0);
-		s_mir_adresa : inout std_logic_vector(7 downto 0);
+		s_rom_out : in std_logic_vector (31 downto 0);
+		s_amux : out std_logic; 
+		s_cond, s_alu, s_sh : out std_logic_vector(1 downto 0);
+		s_mbr, s_mar, s_rd, s_wr, s_enc : out std_logic;
+		s_c, s_b, s_a : out std_logic_vector(3 downto 0);
+		s_mir_adresa : out std_logic_vector(7 downto 0);
 		s_t1 : in std_logic
 	);
 end component;
@@ -185,9 +183,7 @@ amux : hex2u1mux port map (s_a_latch, s_mbr_latch, s_amux_out, s_amux);
 registers : registri port map(s_a_dek_out, s_b_dek_out, s_c_dek_out, s_enc, reset, s_a_latch, s_b_latch, s_c_bus, s_t2, s_c_decoded);
 incr : incrementer port map(s_mpc_out, s_mpc_out_inc, s_t2);
 mir : mircomp port map(
-s_mir_reg,
 s_rom_out,
-s_mir,
 s_amux,
 s_cond, s_alu, s_sh,
 s_mbr, s_mar, s_rd, s_wr, s_enc,
@@ -196,10 +192,6 @@ s_mir_adresa,
 s_t1
 );
 
-
-
---Ciklus 2
---Desava se u incrementer-u
 
 --Ciklus 3
 process(s_t3)

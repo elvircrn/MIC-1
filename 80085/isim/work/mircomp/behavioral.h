@@ -22,8 +22,9 @@
 class Work_mircomp_behavioral: public HSim__s6 {
 public:
 
-    HSim__s1 SE[17];
+    HSim__s1 SE[15];
 
+    HSim__s1 SA[1];
     Work_mircomp_behavioral(const char * name);
     ~Work_mircomp_behavioral();
     void constructObject();

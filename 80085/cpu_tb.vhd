@@ -80,7 +80,7 @@ BEGIN
 		wait for 100 ns;
 		
 		clk <= '0';
-	
+		
 		for i in 0 to 99 loop
 			wait for 100 ns;
 			clk <= clk xor '1';
