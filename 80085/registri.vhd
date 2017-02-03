@@ -81,7 +81,7 @@ begin
 				when "1000000000000000" => b_bus <= f;
 				when others => b_bus <= "ZZZZZZZZZZZZZZZZ";
 			end case;
-		elsif (enc = '1' and s_c_decoded'event and s_c_decoded = '1') then
+		elsif (enc = '1' and s_c_decoded'event) then
 			case c_adr is
 				when "0000000000000001" => pc <= c_bus;
 				when "0000000000000010" => ac <= c_bus;

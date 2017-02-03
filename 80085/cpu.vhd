@@ -61,7 +61,8 @@ signal s_z, s_n : std_logic;
 signal s_c_bus : std_logic_vector(15 downto 0);
 signal s_seq_out : std_logic;
 signal s_mmux_out : std_logic_vector(7 downto 0);
-signal s_c_decoded, dummy : std_logic := '0';
+signal dummy : std_logic := '0';
+signal s_c_decoded : std_logic := '0';
 
 component distributer
 	port (
@@ -88,7 +89,7 @@ component decoder
 	port ( enc : in std_logic_vector(3 downto 0);
 			 en  : in std_logic; -- Enable signal
 			 dec : out std_logic_vector(15 downto 0);
-			 s_decoded : out std_logic
+			 s_decoded : buffer std_logic
 	);
 end component;
 
@@ -164,7 +165,7 @@ process (s_t1)
 	variable v_mir : std_logic_vector (31 downto 0);
 	begin
 		if s_t1 = '1' then
-			s_c_decoded <= '0';
+			--s_c_decoded <= '0';
 			v_mir := s_rom_out;
 			s_amux <= v_mir(31);
 			s_cond <= v_mir(30 downto 29);

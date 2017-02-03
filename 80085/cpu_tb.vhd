@@ -82,6 +82,7 @@ BEGIN
 		wait for 100 ns;
 		
 	clk <= '0';
+	
 		wait for 100 ns;
 		clk <= '1';
 		wait for 100 ns;
