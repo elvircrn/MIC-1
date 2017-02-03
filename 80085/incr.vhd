@@ -40,7 +40,7 @@ architecture Behavioral of incrementer is
 begin
 	process(en)
 	begin
-		if (rising_edge(en)) then
+		if (en'event and en = '1') then
 			ainc <= a + 1;
 		end if;
 	end process;

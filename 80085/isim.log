@@ -2,19 +2,19 @@
    ./cpu_tb_vhd_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  53369
+     -ipcport  49635
 
-Fri Feb 03 15:22:18 2017
+Fri Feb 03 23:17:25 2017
 
-Total Line Count : 537
+Total Line Count : 540
 
- Elaboration time : 0.015625 sec.
+ Elaboration time : 0 sec.
 
- Estimate current memory usage : 155.877 Meg. 
+ Estimate current memory usage : 155.709 Meg. 
 
- Total Signals          : 166
+ Total Signals          : 169
  Total Nets             : 674
- Total Signal Drivers   : 65
+ Total Signal Drivers   : 67
  Total Blocks           : 24
  Total Primitive Blocks : 18
  Total Processes        : 19
@@ -33,13 +33,26 @@ ntrace select -o on -n /cpu_tb_vhd/uut/s_b_latch
 ntrace select -o on -n /cpu_tb_vhd/uut/p_mbr/mbr_latch 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_mar/mar_latch 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_registri/sp 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_registri/ac 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/y0 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_mmux/x0 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_mmux/x1 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_mmux/y0 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_mmux/c 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/x1 
+ntrace select -o on -n /cpu_tb_vhd/uut/s_a_decoded 
+ntrace select -o on -n /cpu_tb_vhd/uut/s_b_decoded 
+ntrace select -o on -n /cpu_tb_vhd/uut/s_c_decoded 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.
+Finished circuit initialization process.
 WARNING:Simulator:29 - at 0 ns: Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an
    arithmetic operand, the result will be 'X'(es).
 WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
    'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
-   'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-Finished circuit initialization process.
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 

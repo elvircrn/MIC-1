@@ -37,11 +37,12 @@ architecture Behavioral of decoder is
 begin
 process(en, enc) 
 begin
-	if (en = '1') then
+	if (en'event) then
 		dec <= (others => '0');
 		dec(conv_integer(enc)) <= '1';
 		s_decoded <= s_decoded xor '1';
 	end if;
+
 end process;
 end Behavioral;
 

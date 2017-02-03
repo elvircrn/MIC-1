@@ -40,7 +40,7 @@ architecture Behavioral of mpc is
 begin
 	process(s_t)
 	begin
-		if(s_t = '1') then
+		if(s_t'event and s_t = '1') then
 			mpc_reg <= s_mmux_out;
 			s_mpc_reg_out <= s_mmux_out;
 		end if;
