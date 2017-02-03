@@ -185,6 +185,15 @@ component mbrcomp
 	);
 end component;
 
+component mpc
+	port(
+		s_t : in std_logic;
+		s_mmux_out : in std_logic_vector(7 downto 0);
+		s_mpc_reg_out : out std_logic_vector(7 downto 0) := x"00"	
+	);
+end component;
+
+
 begin
 
 --TODO 
@@ -212,16 +221,8 @@ p_mir : mircomp port map(s_rom_out, s_amux, s_cond, s_alu, s_sh, s_mbr, s_mar, s
 p_mar : marcomp port map(s_t3, s_mar, s_b_latch, adresa);
 p_a_lec : ab_latches port map(s_t2, s_a_bus, s_a_latch);
 p_b_lec : ab_latches port map(s_t2, s_b_bus, s_b_latch);
---p_ab_lecevi : ab_latches port map(s_t2, s_a_bus, s_b_bus, s_a_latch, s_b_latch);
 p_mbr : mbrcomp port map(s_t4, s_c_bus, s_mbr, s_rd, s_wr, podaci);
-
---Ciklus 4
-process(s_t4)
-begin
- if (s_t4 = '1') then
-	s_mpc_out <= s_mmux_out;
- end if;
-end process;
+p_mpc : mpc port map(s_t4, s_mmux_out, s_mpc_out);
 
 end Behavioral;
 
