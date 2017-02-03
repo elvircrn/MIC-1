@@ -50,6 +50,7 @@ signal s_cond, s_alu, s_sh : std_logic_vector(1 downto 0);
 signal s_mbr, s_mar, s_rd, s_wr, s_enc : std_logic;
 signal s_c, s_b, s_a : std_logic_vector(3 downto 0);
 signal s_mir_adresa : std_logic_vector(7 downto 0);
+
 signal s_mpc_out : std_logic_vector(7 downto 0) :=x"00" ;
 signal s_mpc_out_inc : std_logic_vector(7 downto 0);
 signal s_a_dek_out, s_b_dek_out, s_c_dek_out : std_logic_vector(15 downto 0);
@@ -77,6 +78,20 @@ component ALU
 		f0, f1 : in std_logic;
 		y0 : out std_logic_vector(15 downto 0);
 		z, n : out std_logic
+	);
+end component;
+
+component mircomp
+	port(
+		s_mir_reg : inout std_logic_vector (31 downto 0);
+		s_rom_out : inout std_logic_vector (31 downto 0);
+		s_mir : inout std_logic_vector(31 downto 0);
+		s_amux : inout std_logic; 
+		s_cond, s_alu, s_sh : inout std_logic_vector(1 downto 0);
+		s_mbr, s_mar, s_rd, s_wr, s_enc : inout std_logic;
+		s_c, s_b, s_a : inout std_logic_vector(3 downto 0);
+		s_mir_adresa : inout std_logic_vector(7 downto 0);
+		s_t1 : in std_logic
 	);
 end component;
 
@@ -169,30 +184,19 @@ mmux : oct2to1mux port map(s_mpc_out_inc, s_mir_adresa, s_mmux_out, s_seq_out);
 amux : hex2u1mux port map (s_a_latch, s_mbr_latch, s_amux_out, s_amux);
 registers : registri port map(s_a_dek_out, s_b_dek_out, s_c_dek_out, s_enc, reset, s_a_latch, s_b_latch, s_c_bus, s_t2, s_c_decoded);
 incr : incrementer port map(s_mpc_out, s_mpc_out_inc, s_t2);
+mir : mircomp port map(
+s_mir_reg,
+s_rom_out,
+s_mir,
+s_amux,
+s_cond, s_alu, s_sh,
+s_mbr, s_mar, s_rd, s_wr, s_enc,
+s_c, s_b, s_a,
+s_mir_adresa,
+s_t1
+);
 
---Ciklus 1
-process (s_t1)
-	variable v_mir : std_logic_vector (31 downto 0);
-	begin
-		if s_t1 = '1' then
-			--s_c_decoded <= '0';
-			v_mir := s_rom_out;
-			s_amux <= v_mir(31);
-			s_cond <= v_mir(30 downto 29);
-			s_alu <= v_mir(28 downto 27);
-			s_sh <= v_mir(26 downto 25);
-			s_mbr <= v_mir(24);
-			s_mar <= v_mir(23);
-			s_rd <= v_mir(22);
-			s_wr <= v_mir(21);
-			s_enc <= v_mir(20);
-			s_c <= v_mir(19 downto 16);
-			s_b <= v_mir(15 downto 12);
-			s_a <= v_mir(11 downto 8);
-			s_mir_adresa <= v_mir(7 downto 0);
-			s_mir <= v_mir; -- Stavio unutar if-a
-		end if;
-	end process;
+
 
 --Ciklus 2
 --Desava se u incrementer-u
