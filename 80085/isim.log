@@ -2,19 +2,19 @@
    ./cpu_tb_vhd_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  49635
+     -ipcport  54760
 
-Fri Feb 03 23:17:25 2017
+Fri Feb 03 23:39:09 2017
 
-Total Line Count : 540
+Total Line Count : 545
 
- Elaboration time : 0 sec.
+ Elaboration time : 0.03125 sec.
 
- Estimate current memory usage : 155.709 Meg. 
+ Estimate current memory usage : 155.636 Meg. 
 
- Total Signals          : 169
+ Total Signals          : 170
  Total Nets             : 674
- Total Signal Drivers   : 67
+ Total Signal Drivers   : 68
  Total Blocks           : 24
  Total Primitive Blocks : 18
  Total Processes        : 19
@@ -51,8 +51,3 @@ WARNING:Simulator:29 - at 0 ns: Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an
    arithmetic operand, the result will be 'X'(es).
 WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
    'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 

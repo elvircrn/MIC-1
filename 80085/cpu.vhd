@@ -159,7 +159,8 @@ component mbrcomp
 		s_t : in std_logic;
 		s_c_bus : in std_logic_vector(15 downto 0);
 		s_mbr, s_rd, s_wr : in std_logic;
-		podaci : inout std_logic_vector(15 downto 0)
+		podaci : inout std_logic_vector(15 downto 0);
+		s_mbr_latch_out : out std_logic_vector(15 downto 0)
 	);
 end component;
 
@@ -196,7 +197,7 @@ rd, wr, s_enc, s_c, s_b, s_a, s_mir_adresa, s_t1, dec_en);
 p_mar : marcomp port map(s_t3, s_mar, s_b_latch, adresa);
 p_a_lec : ab_latches port map(s_t2, s_a_bus, s_a_latch);
 p_b_lec : ab_latches port map(s_t2, s_b_bus, s_b_latch);
-p_mbr : mbrcomp port map(s_t4, s_c_bus, s_mbr, s_rd, s_wr, podaci);
+p_mbr : mbrcomp port map(s_t4, s_c_bus, s_mbr, s_rd, s_wr, podaci, s_mbr_latch);
 p_mpc : mpc port map(s_t4, s_mmux_out, s_mpc_out);
 
 end Behavioral;

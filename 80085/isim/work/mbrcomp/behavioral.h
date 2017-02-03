@@ -22,7 +22,7 @@
 class Work_mbrcomp_behavioral: public HSim__s6 {
 public:
 
-    HSim__s1 SE[6];
+    HSim__s1 SE[7];
 
     HSim__s1 SA[1];
     Work_mbrcomp_behavioral(const char * name);
