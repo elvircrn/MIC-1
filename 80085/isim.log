@@ -2,21 +2,21 @@
    ./cpu_tb_vhd_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  57082
+     -ipcport  57405
 
-Fri Feb 03 02:23:13 2017
+Fri Feb 03 02:52:40 2017
 
-Total Line Count : 416
+Total Line Count : 429
 
- Elaboration time : 0 sec.
+ Elaboration time : 0.015625 sec.
 
- Estimate current memory usage : 155.537 Meg. 
+ Estimate current memory usage : 155.718 Meg. 
 
- Total Signals          : 120
+ Total Signals          : 123
  Total Nets             : 613
  Total Signal Drivers   : 58
- Total Blocks           : 17
- Total Primitive Blocks : 11
+ Total Blocks           : 18
+ Total Primitive Blocks : 12
  Total Processes        : 16
  Total Traceable Variables  : 0
  Total Scalar Nets and Variables : 613

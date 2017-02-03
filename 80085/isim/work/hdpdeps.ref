@@ -1,4 +1,4 @@
-V3 74
+V3 78
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/alu.vhd 2017/02/03.00:21:11 J.36
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd 2017/02/03.01:22:14 J.36
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu_tb.vhd 2017/02/03.00:54:58 J.36
@@ -20,20 +20,20 @@ FL C:/Users/Amar.B/Desktop/LD/80085/80085/mseq.vhd 2017/02/02.06:41:11 J.36
 FL C:/Users/Amar.B/Desktop/LD/80085/80085/oct2to1mux.vhd 2017/02/02.06:41:11 J.36
 FL C:/Users/Amar.B/Desktop/LD/80085/80085/ROM256x32.vhd 2017/02/02.06:48:15 J.36
 FL C:/Users/Amar.B/Desktop/LD/80085/80085/shifter16.vhd 2017/02/02.06:41:11 J.36
-FL C:/Users/elvircrn/Documents/codes2/80085/80085/alu.vhd 2017/02/03.01:28:55 J.36
-EN work/ALU 1486082246 FL C:/Users/elvircrn/Documents/codes2/80085/80085/alu.vhd \
+FL C:/Users/elvircrn/Documents/codes2/80085/80085/alu.vhd 2017/02/03.02:52:02 J.36
+EN work/ALU 1486086757 FL C:/Users/elvircrn/Documents/codes2/80085/80085/alu.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/ALU/Behavioral 1486082247 \
-      FL C:/Users/elvircrn/Documents/codes2/80085/80085/alu.vhd EN work/ALU 1486082246
-FL C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd 2017/02/03.01:54:52 J.36
-EN work/cpu 1486084994 FL C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd \
+AR work/ALU/Behavioral 1486086758 \
+      FL C:/Users/elvircrn/Documents/codes2/80085/80085/alu.vhd EN work/ALU 1486086757
+FL C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd 2017/02/03.02:51:14 J.36
+EN work/cpu 1486086761 FL C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/cpu/Behavioral 1486084995 \
-      FL C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd EN work/cpu 1486084994 \
+AR work/cpu/Behavioral 1486086762 \
+      FL C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd EN work/cpu 1486086761 \
       CP distributer CP rom256x32 CP decoder CP alu CP shifter16 CP mseq CP oct2to1mux \
-      CP hex2u1mux CP registri
+      CP hex2u1mux CP registri CP incrementer
 FL C:/Users/elvircrn/Documents/codes2/80085/80085/cputest.vhd 2017/02/02.04:01:16 J.36
 EN work/cputest_vhd 1486004736 \
       FL C:/Users/elvircrn/Documents/codes2/80085/80085/cputest.vhd \
@@ -43,13 +43,13 @@ AR work/cputest_vhd/behavior 1486004737 \
       FL C:/Users/elvircrn/Documents/codes2/80085/80085/cputest.vhd \
       EN work/cputest_vhd 1486004736 CP cpu
 FL C:/Users/elvircrn/Documents/codes2/80085/80085/cpu_tb.vhd 2017/02/03.02:23:05 J.36
-EN work/cpu_tb_vhd 1486084996 \
+EN work/cpu_tb_vhd 1486086763 \
       FL C:/Users/elvircrn/Documents/codes2/80085/80085/cpu_tb.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/STD_LOGIC_UNSIGNED 1179176991 \
       PB ieee/NUMERIC_STD 1179176997
-AR work/cpu_tb_vhd/behavior 1486084997 \
+AR work/cpu_tb_vhd/behavior 1486086764 \
       FL C:/Users/elvircrn/Documents/codes2/80085/80085/cpu_tb.vhd \
-      EN work/cpu_tb_vhd 1486084996 CP cpu
+      EN work/cpu_tb_vhd 1486086763 CP cpu
 FL C:/Users/elvircrn/Documents/codes2/80085/80085/DEC4x16.vhd 2017/02/01.22:58:56 J.36
 EN work/DEC4x16 1485986487 \
       FL C:/Users/elvircrn/Documents/codes2/80085/80085/DEC4x16.vhd \
@@ -90,6 +90,14 @@ EN work/hex2u1mux 1486082254 \
 AR work/hex2u1mux/Behavioral 1486082255 \
       FL C:/Users/elvircrn/Documents/codes2/80085/80085/hex2u1mux.vhd \
       EN work/hex2u1mux 1486082254
+FL C:/Users/elvircrn/Documents/codes2/80085/80085/incr.vhd 2017/02/03.02:52:14 J.36
+EN work/incrementer 1486086759 \
+      FL C:/Users/elvircrn/Documents/codes2/80085/80085/incr.vhd \
+      PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
+      PB ieee/STD_LOGIC_UNSIGNED 1179176991
+AR work/incrementer/Behavioral 1486086760 \
+      FL C:/Users/elvircrn/Documents/codes2/80085/80085/incr.vhd \
+      EN work/incrementer 1486086759
 FL C:/Users/elvircrn/Documents/codes2/80085/80085/mseq.vhd 2017/02/03.01:28:55 J.36
 EN work/mseq 1486082250 \
       FL C:/Users/elvircrn/Documents/codes2/80085/80085/mseq.vhd \

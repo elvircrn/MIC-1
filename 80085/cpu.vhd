@@ -85,6 +85,15 @@ component ROM256x32
          data : out std_logic_vector(31 downto 0) );
 end component;
 
+component incrementer
+	port (
+		a    : in std_logic_vector(7 downto 0);
+		ainc : out std_logic_vector(7 downto 0);
+		en   : in std_logic
+	);
+end component;
+	
+
 component decoder
 	port ( enc : in std_logic_vector(3 downto 0);
 			 en  : in std_logic; -- Enable signal
@@ -159,6 +168,7 @@ p_mseq: mseq port map(s_cond, s_n, s_z, s_seq_out);
 mmux : oct2to1mux port map(s_mpc_out_inc, s_mir_adresa, s_mmux_out, s_seq_out);
 amux : hex2u1mux port map (s_a_latch, s_mbr_latch, s_amux_out, s_amux);
 registers : registri port map(s_a_dek_out, s_b_dek_out, s_c_dek_out, s_enc, reset, s_a_latch, s_b_latch, s_c_bus, s_t2, s_c_decoded);
+incr : incrementer port map(s_mpc_out, s_mpc_out_inc, s_t2);
 
 --Ciklus 1
 process (s_t1)
@@ -185,13 +195,7 @@ process (s_t1)
 	end process;
 
 --Ciklus 2
-process(s_t2)
-begin
- if s_t2 = '1' then
-	s_mpc_out_inc <= s_mpc_out + '1';
-	--Registri su sensitive na s_t2
- end if;
-end process;
+--Desava se u incrementer-u
 
 --Ciklus 3
 process(s_t3)

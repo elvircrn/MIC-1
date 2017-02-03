@@ -771,6 +771,7 @@ proc restore { { project_dir "" } } {
       "decoder.vhd" 
       "distributer.vhd" 
       "hex2u1mux.vhd" 
+      "incr.vhd" 
       "mseq.vhd" 
       "oct2to1mux.vhd" 
       "registri.vhd" 

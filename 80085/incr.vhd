@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    22:17:02 02/01/2017 
+-- Create Date:    02:45:32 02/03/2017 
 -- Design Name: 
--- Module Name:    mseq - Behavioral 
+-- Module Name:    incr - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -27,20 +27,22 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity mseq is
-	port(
-		cond : in std_logic_vector(1 downto 0);
-		n, z : in std_logic;
-		seq_out : out std_logic
+entity incrementer is
+	port (
+		a    : in std_logic_vector(7 downto 0);
+		ainc : out std_logic_vector(7 downto 0);
+		en   : in std_logic
 	);
-end mseq;
+end incrementer;
 
-architecture Behavioral of mseq is
+architecture Behavioral of incrementer is
 
 begin
-	
-	seq_out <= (cond(1) and cond(0)) or 
-		(cond(0) and n) or
-		(cond(1) and z);
+	process(en)
+	begin
+		if (rising_edge(en)) then
+			ainc <= a + 1;
+		end if;
+	end process;
 end Behavioral;
 
