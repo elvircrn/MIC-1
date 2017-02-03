@@ -1,0 +1,452 @@
+Release 9.2i - xst J.36
+Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to ./xst/projnav.tmp
+CPU : 0.00 / 0.07 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.07 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Reading design: cpu.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "cpu.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "cpu"
+Output Format                      : NGC
+Target Device                      : Automotive 9500XL
+
+---- Source Options
+Top Module Name                    : cpu
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+
+---- Target Options
+Add IO Buffers                     : YES
+MACRO Preserve                     : YES
+XOR Preserve                       : YES
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Library Search Order               : cpu.lso
+Keep Hierarchy                     : YES
+RTL Output                         : Yes
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : maintain
+Verilog 2001                       : YES
+
+---- Other Options
+Clock Enable                       : YES
+wysiwyg                            : NO
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/elvircrn/Documents/codes2/80085/80085/distributer.vhd" in Library work.
+Architecture behavioral of Entity distributer is up to date.
+Compiling vhdl file "C:/Users/elvircrn/Documents/codes2/80085/80085/ROM256x32.vhd" in Library work.
+Architecture behavioral of Entity rom256x32 is up to date.
+Compiling vhdl file "C:/Users/elvircrn/Documents/codes2/80085/80085/decoder.vhd" in Library work.
+Architecture behavioral of Entity decoder is up to date.
+Compiling vhdl file "C:/Users/elvircrn/Documents/codes2/80085/80085/alu.vhd" in Library work.
+Architecture behavioral of Entity alu is up to date.
+Compiling vhdl file "C:/Users/elvircrn/Documents/codes2/80085/80085/shifter16.vhd" in Library work.
+Architecture behavioral of Entity shifter16 is up to date.
+Compiling vhdl file "C:/Users/elvircrn/Documents/codes2/80085/80085/mseq.vhd" in Library work.
+Architecture behavioral of Entity mseq is up to date.
+Compiling vhdl file "C:/Users/elvircrn/Documents/codes2/80085/80085/oct2to1mux.vhd" in Library work.
+Architecture behavioral of Entity oct2to1mux is up to date.
+Compiling vhdl file "C:/Users/elvircrn/Documents/codes2/80085/80085/hex2u1mux.vhd" in Library work.
+Architecture behavioral of Entity hex2u1mux is up to date.
+Compiling vhdl file "C:/Users/elvircrn/Documents/codes2/80085/80085/registri.vhd" in Library work.
+Architecture behavioral of Entity registri is up to date.
+Compiling vhdl file "C:/Users/elvircrn/Documents/codes2/80085/80085/incr.vhd" in Library work.
+Architecture behavioral of Entity incrementer is up to date.
+Compiling vhdl file "C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd" in Library work.
+Architecture behavioral of Entity cpu is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <cpu> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <distributer> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <ROM256x32> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <decoder> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <ALU> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <shifter16> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <mseq> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <oct2to1mux> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <hex2u1mux> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <registri> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <incrementer> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <cpu> in library <work> (Architecture <behavioral>).
+INFO:Xst:1739 - HDL ADVISOR - "C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd" line 32: declaration of a buffer port will make it difficult for you to validate this design by simulation. It is preferable to declare it as output.
+INFO:Xst:1739 - HDL ADVISOR - "C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd" line 32: declaration of a buffer port will make it difficult for you to validate this design by simulation. It is preferable to declare it as output.
+INFO:Xst:1739 - HDL ADVISOR - "C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd" line 32: declaration of a buffer port will make it difficult for you to validate this design by simulation. It is preferable to declare it as output.
+WARNING:Xst:819 - "C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd" line 174: The following signals are missing in the process sensitivity list:
+   s_rom_out.
+WARNING:Xst:819 - "C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd" line 201: The following signals are missing in the process sensitivity list:
+   s_mar, s_b_latch.
+WARNING:Xst:819 - "C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd" line 212: The following signals are missing in the process sensitivity list:
+   s_mmux_out, s_mbr, s_c_bus, s_rd, podaci, s_wr, s_mbr_latch.
+Entity <cpu> analyzed. Unit <cpu> generated.
+
+Analyzing Entity <distributer> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "C:/Users/elvircrn/Documents/codes2/80085/80085/distributer.vhd" line 18: The following signals are missing in the process sensitivity list:
+   reset, temp.
+Entity <distributer> analyzed. Unit <distributer> generated.
+
+Analyzing Entity <ROM256x32> in library <work> (Architecture <behavioral>).
+Entity <ROM256x32> analyzed. Unit <ROM256x32> generated.
+
+Analyzing Entity <decoder> in library <work> (Architecture <behavioral>).
+Entity <decoder> analyzed. Unit <decoder> generated.
+
+Analyzing Entity <ALU> in library <work> (Architecture <behavioral>).
+Entity <ALU> analyzed. Unit <ALU> generated.
+
+Analyzing Entity <shifter16> in library <work> (Architecture <behavioral>).
+Entity <shifter16> analyzed. Unit <shifter16> generated.
+
+Analyzing Entity <mseq> in library <work> (Architecture <behavioral>).
+Entity <mseq> analyzed. Unit <mseq> generated.
+
+Analyzing Entity <oct2to1mux> in library <work> (Architecture <behavioral>).
+Entity <oct2to1mux> analyzed. Unit <oct2to1mux> generated.
+
+Analyzing Entity <hex2u1mux> in library <work> (Architecture <behavioral>).
+Entity <hex2u1mux> analyzed. Unit <hex2u1mux> generated.
+
+Analyzing Entity <registri> in library <work> (Architecture <behavioral>).
+Entity <registri> analyzed. Unit <registri> generated.
+
+Analyzing Entity <incrementer> in library <work> (Architecture <behavioral>).
+Entity <incrementer> analyzed. Unit <incrementer> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <distributer>.
+    Related source file is "C:/Users/elvircrn/Documents/codes2/80085/80085/distributer.vhd".
+    Found 4x4-bit ROM for signal <temp$rom0000>.
+    Found 2-bit up counter for signal <temp>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   1 Counter(s).
+Unit <distributer> synthesized.
+
+
+Synthesizing Unit <ROM256x32>.
+    Related source file is "C:/Users/elvircrn/Documents/codes2/80085/80085/ROM256x32.vhd".
+    Found 256x32-bit ROM for signal <data>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <ROM256x32> synthesized.
+
+
+Synthesizing Unit <decoder>.
+    Related source file is "C:/Users/elvircrn/Documents/codes2/80085/80085/decoder.vhd".
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_10>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_11>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_12>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_13>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_14>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_0>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_15>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_1>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_2>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_3>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_4>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_5>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_6>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_7>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_8>.
+WARNING:Xst:737 - Found 1-bit latch for signal <s_decoded>.
+WARNING:Xst:737 - Found 1-bit latch for signal <dec_9>.
+Unit <decoder> synthesized.
+
+
+Synthesizing Unit <ALU>.
+    Related source file is "C:/Users/elvircrn/Documents/codes2/80085/80085/alu.vhd".
+WARNING:Xst:2734 - Property "use_dsp48" is not applicable for this technology.
+    Found 16-bit adder for signal <y$addsub0000> created at line 46.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <ALU> synthesized.
+
+
+Synthesizing Unit <shifter16>.
+    Related source file is "C:/Users/elvircrn/Documents/codes2/80085/80085/shifter16.vhd".
+Unit <shifter16> synthesized.
+
+
+Synthesizing Unit <mseq>.
+    Related source file is "C:/Users/elvircrn/Documents/codes2/80085/80085/mseq.vhd".
+Unit <mseq> synthesized.
+
+
+Synthesizing Unit <oct2to1mux>.
+    Related source file is "C:/Users/elvircrn/Documents/codes2/80085/80085/oct2to1mux.vhd".
+Unit <oct2to1mux> synthesized.
+
+
+Synthesizing Unit <hex2u1mux>.
+    Related source file is "C:/Users/elvircrn/Documents/codes2/80085/80085/hex2u1mux.vhd".
+Unit <hex2u1mux> synthesized.
+
+
+Synthesizing Unit <registri>.
+    Related source file is "C:/Users/elvircrn/Documents/codes2/80085/80085/registri.vhd".
+WARNING:Xst:647 - Input <c_adr> is never used.
+WARNING:Xst:1305 - Output <a_bus> is never assigned. Tied to value 0000000000000000.
+WARNING:Xst:647 - Input <reset> is never used.
+WARNING:Xst:647 - Input <enc> is never used.
+WARNING:Xst:1305 - Output <b_bus> is never assigned. Tied to value 0000000000000000.
+WARNING:Xst:647 - Input <s_t2> is never used.
+WARNING:Xst:647 - Input <a_adr> is never used.
+WARNING:Xst:647 - Input <c_bus> is never used.
+WARNING:Xst:647 - Input <b_adr> is never used.
+WARNING:Xst:647 - Input <s_c_decoded> is never used.
+WARNING:Xst:1780 - Signal <ac> is never used or assigned.
+WARNING:Xst:1780 - Signal <tir> is never used or assigned.
+WARNING:Xst:1780 - Signal <p_one> is never used or assigned.
+WARNING:Xst:1780 - Signal <ir> is never used or assigned.
+WARNING:Xst:1780 - Signal <amask> is never used or assigned.
+WARNING:Xst:1780 - Signal <a> is never used or assigned.
+WARNING:Xst:1780 - Signal <b> is never used or assigned.
+WARNING:Xst:1780 - Signal <c> is never used or assigned.
+WARNING:Xst:1780 - Signal <d> is never used or assigned.
+WARNING:Xst:1780 - Signal <e> is never used or assigned.
+WARNING:Xst:1780 - Signal <f> is never used or assigned.
+WARNING:Xst:1780 - Signal <pc> is never used or assigned.
+WARNING:Xst:1780 - Signal <sp> is never used or assigned.
+WARNING:Xst:1780 - Signal <smask> is never used or assigned.
+WARNING:Xst:1780 - Signal <n_one> is never used or assigned.
+WARNING:Xst:1780 - Signal <zero> is never used or assigned.
+Unit <registri> synthesized.
+
+
+Synthesizing Unit <incrementer>.
+    Related source file is "C:/Users/elvircrn/Documents/codes2/80085/80085/incr.vhd".
+WARNING:Xst:2734 - Property "use_dsp48" is not applicable for this technology.
+    Found 8-bit register for signal <ainc>.
+    Found 8-bit adder for signal <ainc$add0000> created at line 44.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <incrementer> synthesized.
+
+
+Synthesizing Unit <cpu>.
+    Related source file is "C:/Users/elvircrn/Documents/codes2/80085/80085/cpu.vhd".
+WARNING:Xst:1306 - Output <rd> is never assigned.
+WARNING:Xst:1306 - Output <wr> is never assigned.
+WARNING:Xst:646 - Signal <s_mar_latch> is assigned but never used.
+WARNING:Xst:646 - Signal <s_mir> is assigned but never used.
+WARNING:Xst:646 - Signal <dummy> is assigned but never used.
+WARNING:Xst:1780 - Signal <s_mir_reg> is never used or assigned.
+WARNING:Xst:737 - Found 1-bit latch for signal <s_mar>.
+WARNING:Xst:737 - Found 1-bit latch for signal <s_mbr>.
+WARNING:Xst:737 - Found 8-bit latch for signal <s_mpc_out>.
+WARNING:Xst:737 - Found 1-bit latch for signal <s_rd>.
+WARNING:Xst:737 - Found 1-bit latch for signal <s_amux>.
+WARNING:Xst:737 - Found 2-bit latch for signal <s_sh>.
+WARNING:Xst:737 - Found 16-bit latch for signal <podaci>.
+WARNING:Xst:737 - Found 1-bit latch for signal <s_enc>.
+WARNING:Xst:737 - Found 16-bit latch for signal <s_mbr_latch>.
+WARNING:Xst:737 - Found 1-bit latch for signal <s_wr>.
+WARNING:Xst:737 - Found 2-bit latch for signal <s_cond>.
+WARNING:Xst:737 - Found 8-bit latch for signal <s_mir_adresa>.
+WARNING:Xst:737 - Found 12-bit latch for signal <adresa>.
+WARNING:Xst:737 - Found 4-bit latch for signal <s_a>.
+WARNING:Xst:737 - Found 4-bit latch for signal <s_b>.
+WARNING:Xst:737 - Found 4-bit latch for signal <s_c>.
+WARNING:Xst:737 - Found 2-bit latch for signal <s_alu>.
+Unit <cpu> synthesized.
+
+WARNING:Xst:2734 - Property "use_dsp48" is not applicable for this technology.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 2
+ 256x32-bit ROM                                        : 1
+ 4x4-bit ROM                                           : 1
+# Adders/Subtractors                                   : 2
+ 16-bit adder                                          : 1
+ 8-bit adder                                           : 1
+# Counters                                             : 1
+ 2-bit up counter                                      : 1
+# Registers                                            : 1
+ 8-bit register                                        : 1
+# Latches                                              : 68
+ 1-bit latch                                           : 57
+ 12-bit latch                                          : 1
+ 16-bit latch                                          : 2
+ 2-bit latch                                           : 3
+ 4-bit latch                                           : 3
+ 8-bit latch                                           : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <1>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <2>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <3>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <4>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <5>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <6>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <7>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <0>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <1>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <2>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <3>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <4>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <5>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <6>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <7>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <8>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <9>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <10>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <11>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <0>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <1>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <s_rd>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <s_amux>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <0>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <1>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <0>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <1>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <2>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <3>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <4>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <5>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <6>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <7>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <8>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <9>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <10>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <11>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <12>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <13>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <14>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <15>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <s_wr>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <0>.
+WARNING:Xst:1290 - Hierarchical block <decoder_1> is unconnected in block <cpu>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <decoder_2> is unconnected in block <cpu>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <decoder_3> is unconnected in block <cpu>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <p_fazni_sat> is unconnected in block <cpu>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <rom> is unconnected in block <cpu>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <p_alu> is unconnected in block <cpu>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <p_sifter> is unconnected in block <cpu>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <p_mseq> is unconnected in block <cpu>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <mmux> is unconnected in block <cpu>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <amux> is unconnected in block <cpu>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <registers> is unconnected in block <cpu>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <incr> is unconnected in block <cpu>.
+   It will be removed from the design.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 2
+ 256x32-bit ROM                                        : 1
+ 4x4-bit ROM                                           : 1
+# Adders/Subtractors                                   : 2
+ 16-bit adder                                          : 1
+ 8-bit adder                                           : 1
+# Counters                                             : 1
+ 2-bit up counter                                      : 1
+# Registers                                            : 8
+ Flip-Flops                                            : 8
+# Latches                                              : 68
+ 1-bit latch                                           : 57
+ 12-bit latch                                          : 1
+ 16-bit latch                                          : 2
+ 2-bit latch                                           : 3
+ 4-bit latch                                           : 3
+ 8-bit latch                                           : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1355 - Unit mseq is merged (low complexity)
+
+ERROR:Xst:528 - Multi-source in Unit <cpu> on signal <dummy>
+Sources are: 
+   Output signal of LD instance <decoder_1/s_decoded>
+   Output signal of LD instance <decoder_2/s_decoded>
+CPU : 1.94 / 2.02 s | Elapsed : 2.00 / 2.00 s
+ 
+--> 
+
+Total memory usage is 206340 kilobytes
+
+Number of errors   :    1 (   0 filtered)
+Number of warnings :  129 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+

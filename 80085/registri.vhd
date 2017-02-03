@@ -82,7 +82,10 @@ end if;
 				when "1000000000000000" => a_bus <= f;
 				when others => null;
 			end case;
-				case b_adr is
+			
+			
+			
+			case b_adr is
 				when "0000000000000001" => b_bus <= pc;
 				when "0000000000000010" => b_bus <= ac;
 				when "0000000000000100" => b_bus <= sp;
@@ -99,7 +102,8 @@ end if;
 				when "0010000000000000" => b_bus <= d;
 				when "0100000000000000" => b_bus <= e;
 				when "1000000000000000" => b_bus <= f;
-				when others => b_bus <= "ZZZZZZZZZZZZZZZZ";
+				when others => null;
+				--when others => b_bus <= "0000000000000001";
 			end case;
 		elsif (enc = '1' and s_c_decoded'event) then
 			case c_adr is
