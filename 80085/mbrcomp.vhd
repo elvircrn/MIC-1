@@ -28,12 +28,31 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 
 entity mbrcomp is
+	port(
+		s_t : in std_logic;
+		s_c_bus : in std_logic_vector(15 downto 0);
+		s_mbr, s_rd, s_wr : in std_logic;
+		podaci : inout std_logic_vector(15 downto 0)
+	);
 end mbrcomp;
 
 architecture Behavioral of mbrcomp is
-
+	signal mbr_latch : std_logic_vector(15 downto 0);
 begin
-
+process(s_t)
+begin
+	if(s_t = '1') then
+		if s_mbr = '1' then
+			mbr_latch <= s_c_bus;
+		end if;
+		if s_rd = '1' then
+			mbr_latch <= podaci;
+		end if;
+		if s_wr = '1' then
+			podaci <= mbr_latch;
+		end if;
+	end if;
+end process;
 
 end Behavioral;
 

@@ -2,36 +2,36 @@
    ./cpu_tb_vhd_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  52358
+     -ipcport  52400
 
-Fri Feb 03 07:16:40 2017
+Fri Feb 03 07:30:52 2017
 
-Total Line Count : 491
+Total Line Count : 509
 
  Elaboration time : 0.015625 sec.
 
- Estimate current memory usage : 156.062 Meg. 
+ Estimate current memory usage : 155.615 Meg. 
 
- Total Signals          : 152
- Total Nets             : 642
+ Total Signals          : 159
+ Total Nets             : 658
  Total Signal Drivers   : 62
- Total Blocks           : 21
- Total Primitive Blocks : 15
- Total Processes        : 17
+ Total Blocks           : 22
+ Total Primitive Blocks : 16
+ Total Processes        : 18
  Total Traceable Variables  : 0
- Total Scalar Nets and Variables : 642
+ Total Scalar Nets and Variables : 658
 ntrace select -o on -n /cpu_tb_vhd/clk 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_rom_out 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t1 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t2 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t3 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t4 
-ntrace select -o on -n /cpu_tb_vhd/uut/registers/sp 
-ntrace select -o on -n /cpu_tb_vhd/uut/mar/mar_latch 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_a_bus 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_b_bus 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_a_latch 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_b_latch 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_mbr/mbr_latch 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_mar/mar_latch 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.

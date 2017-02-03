@@ -176,46 +176,48 @@ component ab_latches
 	);
 end component; 
 
+component mbrcomp
+	port(
+		s_t : in std_logic;
+		s_c_bus : in std_logic_vector(15 downto 0);
+		s_mbr, s_rd, s_wr : in std_logic;
+		podaci : inout std_logic_vector(15 downto 0)
+	);
+end component;
+
 begin
 
 --TODO 
 --Provjeriti velicinu mar latcha
 --rd i wr <= s_rd i s_wr
 --preloadati instrukcije
+--izbaciti rising edge i/ili inicijalizirati SVE signale
+--dodati mpcreg komponentu i uvezati
 
 --Mapiranje
 p_fazni_sat : distributer port map (clk, reset, s_t1, s_t2, s_t3, s_t4);
-rom : rom256x32 port map (s_mpc_out, s_rom_out);
-decoder_1 : decoder port map (s_a, '1', s_a_dek_out, s_a_decoded);
-decoder_2 : decoder port map (s_b, '1', s_b_dek_out, s_b_decoded);
-decoder_3 : decoder port map (s_c, s_t4, s_c_dek_out, s_c_decoded);
+p_rom : rom256x32 port map (s_mpc_out, s_rom_out);
+p_a_dekoder : decoder port map (s_a, '1', s_a_dek_out, s_a_decoded);
+p_b_dekoder : decoder port map (s_b, '1', s_b_dek_out, s_b_decoded);
+p_c_dekoder : decoder port map (s_c, s_t4, s_c_dek_out, s_c_decoded);
 p_alu: alu port map (s_amux_out, s_b_latch, s_alu(0), s_alu(1), s_alu_out, s_z, s_n);
 p_sifter: shifter16 port map (s_alu_out, s_sh(1), s_sh(0), s_c_bus);
 p_mseq: mseq port map(s_cond, s_n, s_z, s_seq_out);
-mmux : oct2to1mux port map(s_mpc_out_inc, s_mir_adresa, s_mmux_out, s_seq_out);
-amux : hex2u1mux port map (s_a_latch, s_mbr_latch, s_amux_out, s_amux);
-registers : registri port map(s_a_dek_out, s_b_dek_out, s_c_dek_out, s_enc, reset, s_a_bus, s_b_bus, s_c_bus, 
+p_mmux : oct2to1mux port map(s_mpc_out_inc, s_mir_adresa, s_mmux_out, s_seq_out);
+p_amux : hex2u1mux port map (s_a_latch, s_mbr_latch, s_amux_out, s_amux);
+p_registri : registri port map(s_a_dek_out, s_b_dek_out, s_c_dek_out, s_enc, reset, s_a_bus, s_b_bus, s_c_bus, 
 s_a_decoded, s_b_decoded, s_c_decoded);
-incr : incrementer port map(s_mpc_out, s_mpc_out_inc, s_t2);
-mir : mircomp port map(s_rom_out, s_amux, s_cond, s_alu, s_sh, s_mbr, s_mar, s_rd, s_wr, s_enc, s_c, s_b, s_a, s_mir_adresa, s_t1);
-mar : marcomp port map(s_t3, s_mar, s_b_latch, adresa);
+p_inkrementer : incrementer port map(s_mpc_out, s_mpc_out_inc, s_t2);
+p_mir : mircomp port map(s_rom_out, s_amux, s_cond, s_alu, s_sh, s_mbr, s_mar, s_rd, s_wr, s_enc, s_c, s_b, s_a, s_mir_adresa, s_t1);
+p_mar : marcomp port map(s_t3, s_mar, s_b_latch, adresa);
 p_ab_lecevi : ab_latches port map(s_t2, s_a_bus, s_b_bus, s_a_latch, s_b_latch);
+p_mbr : mbrcomp port map(s_t4, s_c_bus, s_mbr, s_rd, s_wr, podaci);
 
 --Ciklus 4
 process(s_t4)
 begin
  if (s_t4 = '1') then
 	s_mpc_out <= s_mmux_out;
-	if s_mbr = '1' then
-		s_mbr_latch <= s_c_bus;
-	end if;
-	if s_rd = '1' then
-		s_mbr_latch <= podaci;
-	end if;
-	if s_wr = '1' then
-		podaci <= s_mbr_latch;
-	end if;
-	--C dekoder je sensitive na s_t4
  end if;
 end process;
 
