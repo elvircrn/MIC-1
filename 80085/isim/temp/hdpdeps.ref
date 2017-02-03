@@ -1,4 +1,12 @@
-V3 85
+V3 88
+FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/ab_latches.vhd 2017/02/03.07:11:12 J.36
+EN isim_temp/ab_latches 1486102277 \
+      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/ab_latches.vhd \
+      PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
+      PB ieee/STD_LOGIC_UNSIGNED 1179176991
+AR isim_temp/ab_latches/Behavioral 1486102278 \
+      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/ab_latches.vhd \
+      EN isim_temp/ab_latches 1486102277
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/alu.vhd 2017/02/03.00:21:11 J.36
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd 2017/02/03.00:40:24 J.36
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu_tb.vhd 2017/02/03.00:37:57 J.36
@@ -15,7 +23,14 @@ AR isim_temp/marcomp/Behavioral 1486101193 \
       EN isim_temp/marcomp 1486101192
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/mseq.vhd 2017/02/03.00:21:12 J.36
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/oct2to1mux.vhd 2017/02/03.00:21:12 J.36
-FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/registri.vhd 2017/02/03.00:40:10 J.36
+FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/registri.vhd 2017/02/03.07:12:58 J.36
+EN isim_temp/registri 1486102383 \
+      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/registri.vhd \
+      PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
+      PB ieee/STD_LOGIC_UNSIGNED 1179176991
+AR isim_temp/registri/Behavioral 1486102384 \
+      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/registri.vhd \
+      EN isim_temp/registri 1486102383
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/ROM256x32.vhd 2017/02/03.00:21:11 J.36
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/shifter16.vhd 2017/02/03.00:21:12 J.36
 FL C:/Users/Amar.B/Desktop/LD/80085/80085/alu.vhd 2017/02/02.06:41:10 J.36
@@ -133,13 +148,6 @@ AR isim_temp/oct2to1mux/Behavioral 1486092851 \
       FL C:/Users/elvircrn/Documents/codes2/80085/80085/oct2to1mux.vhd \
       EN isim_temp/oct2to1mux 1486092850
 FL C:/Users/elvircrn/Documents/codes2/80085/80085/registri.vhd 2017/02/03.03:15:42 J.36
-EN isim_temp/registri 1486092854 \
-      FL C:/Users/elvircrn/Documents/codes2/80085/80085/registri.vhd \
-      PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
-      PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR isim_temp/registri/Behavioral 1486092855 \
-      FL C:/Users/elvircrn/Documents/codes2/80085/80085/registri.vhd \
-      EN isim_temp/registri 1486092854
 FL C:/Users/elvircrn/Documents/codes2/80085/80085/ROM256x32.vhd 2017/02/03.02:21:36 J.36
 EN isim_temp/ROM256x32 1486092840 \
       FL C:/Users/elvircrn/Documents/codes2/80085/80085/ROM256x32.vhd \

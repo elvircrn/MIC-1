@@ -10,8 +10,8 @@
 //  \___\/\___\
 ////////////////////////////////////////////////////////////////////////////////
 
-#ifndef H_Work_cpu_behavioral_H
-#define H_Work_cpu_behavioral_H
+#ifndef H_Work_ab_latches_behavioral_H
+#define H_Work_ab_latches_behavioral_H
 #ifdef __MINGW32__
 #include "xsimMinGW.h"
 #else
@@ -19,14 +19,14 @@
 #endif
 
 
-class Work_cpu_behavioral: public HSim__s6 {
+class Work_ab_latches_behavioral: public HSim__s6 {
 public:
 
-    HSim__s1 SE[6];
+    HSim__s1 SE[5];
 
-    HSim__s1 SA[38];
-    Work_cpu_behavioral(const char * name);
-    ~Work_cpu_behavioral();
+    HSim__s1 SA[2];
+    Work_ab_latches_behavioral(const char * name);
+    ~Work_ab_latches_behavioral();
     void constructObject();
     void constructPorts();
     void reset();
@@ -36,6 +36,6 @@ public:
 
 
 
-HSim__s6 *createWork_cpu_behavioral(const char *name);
+HSim__s6 *createWork_ab_latches_behavioral(const char *name);
 
 #endif

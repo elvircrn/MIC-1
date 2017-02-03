@@ -47,19 +47,20 @@ signal s_cond, s_alu, s_sh : std_logic_vector(1 downto 0);
 signal s_mbr, s_mar, s_rd, s_wr, s_enc : std_logic;
 signal s_c, s_b, s_a : std_logic_vector(3 downto 0);
 signal s_mir_adresa : std_logic_vector(7 downto 0);
-
+signal s_a_bus, s_b_bus : std_logic_vector(15 downto 0);
 signal s_mpc_out : std_logic_vector(7 downto 0) :=x"00" ;
 signal s_mpc_out_inc : std_logic_vector(7 downto 0);
 signal s_a_dek_out, s_b_dek_out, s_c_dek_out : std_logic_vector(15 downto 0);
 signal s_a_latch, s_b_latch : std_logic_vector(15 downto 0);
 signal s_amux_out : std_logic_vector(15 downto 0);
-signal s_mar_latch, s_mbr_latch : std_logic_vector(15 downto 0);
+signal s_mbr_latch : std_logic_vector(15 downto 0);
 signal s_alu_out : std_logic_vector(15 downto 0);
 signal s_z, s_n : std_logic;
 signal s_c_bus : std_logic_vector(15 downto 0);
 signal s_seq_out : std_logic;
 signal s_mmux_out : std_logic_vector(7 downto 0);
-signal dummy : std_logic := '0';
+signal s_a_decoded : std_logic := '0';
+signal s_b_decoded : std_logic := '0';
 signal s_c_decoded : std_logic := '0';
 
 component distributer
@@ -130,7 +131,8 @@ component registri
 		a_bus : out std_logic_vector (15 downto 0);
 		b_bus : out std_logic_vector (15 downto 0);
 		c_bus : in std_logic_vector (15 downto 0);
-		s_t2 : in std_logic; 
+		s_a_decoded : in std_logic;
+		s_b_decoded : in std_logic;
 		s_c_decoded : in std_logic
 	);
 end component;
@@ -166,23 +168,38 @@ component marcomp
 	);
 end component;
 
+component ab_latches 
+	port(
+		s_t : in std_logic;
+		s_a_bus, s_b_bus : in std_logic_vector(15 downto 0);
+		s_a_latch_out, s_b_latch_out : out std_logic_vector(15 downto 0)
+	);
+end component; 
+
 begin
+
+--TODO 
+--Provjeriti velicinu mar latcha
+--rd i wr <= s_rd i s_wr
+--preloadati instrukcije
 
 --Mapiranje
 p_fazni_sat : distributer port map (clk, reset, s_t1, s_t2, s_t3, s_t4);
 rom : rom256x32 port map (s_mpc_out, s_rom_out);
-decoder_1 : decoder port map (s_a, '1', s_a_dek_out, dummy);
-decoder_2 : decoder port map (s_b, '1', s_b_dek_out, dummy);
+decoder_1 : decoder port map (s_a, '1', s_a_dek_out, s_a_decoded);
+decoder_2 : decoder port map (s_b, '1', s_b_dek_out, s_b_decoded);
 decoder_3 : decoder port map (s_c, s_t4, s_c_dek_out, s_c_decoded);
 p_alu: alu port map (s_amux_out, s_b_latch, s_alu(0), s_alu(1), s_alu_out, s_z, s_n);
 p_sifter: shifter16 port map (s_alu_out, s_sh(1), s_sh(0), s_c_bus);
 p_mseq: mseq port map(s_cond, s_n, s_z, s_seq_out);
 mmux : oct2to1mux port map(s_mpc_out_inc, s_mir_adresa, s_mmux_out, s_seq_out);
 amux : hex2u1mux port map (s_a_latch, s_mbr_latch, s_amux_out, s_amux);
-registers : registri port map(s_a_dek_out, s_b_dek_out, s_c_dek_out, s_enc, reset, s_a_latch, s_b_latch, s_c_bus, s_t2, s_c_decoded);
+registers : registri port map(s_a_dek_out, s_b_dek_out, s_c_dek_out, s_enc, reset, s_a_bus, s_b_bus, s_c_bus, 
+s_a_decoded, s_b_decoded, s_c_decoded);
 incr : incrementer port map(s_mpc_out, s_mpc_out_inc, s_t2);
 mir : mircomp port map(s_rom_out, s_amux, s_cond, s_alu, s_sh, s_mbr, s_mar, s_rd, s_wr, s_enc, s_c, s_b, s_a, s_mir_adresa, s_t1);
 mar : marcomp port map(s_t3, s_mar, s_b_latch, adresa);
+p_ab_lecevi : ab_latches port map(s_t2, s_a_bus, s_b_bus, s_a_latch, s_b_latch);
 
 --Ciklus 4
 process(s_t4)
