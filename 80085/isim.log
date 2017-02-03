@@ -2,22 +2,22 @@
    ./cpu_tb_vhd_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  52400
+     -ipcport  52503
 
-Fri Feb 03 07:30:52 2017
+Fri Feb 03 07:42:25 2017
 
-Total Line Count : 509
+Total Line Count : 520
 
  Elaboration time : 0.015625 sec.
 
- Estimate current memory usage : 155.615 Meg. 
+ Estimate current memory usage : 155.595 Meg. 
 
- Total Signals          : 159
+ Total Signals          : 160
  Total Nets             : 658
  Total Signal Drivers   : 62
- Total Blocks           : 22
- Total Primitive Blocks : 16
- Total Processes        : 18
+ Total Blocks           : 23
+ Total Primitive Blocks : 17
+ Total Processes        : 19
  Total Traceable Variables  : 0
  Total Scalar Nets and Variables : 658
 ntrace select -o on -n /cpu_tb_vhd/clk 
@@ -32,6 +32,7 @@ ntrace select -o on -n /cpu_tb_vhd/uut/s_a_latch
 ntrace select -o on -n /cpu_tb_vhd/uut/s_b_latch 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_mbr/mbr_latch 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_mar/mar_latch 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_registri/sp 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.

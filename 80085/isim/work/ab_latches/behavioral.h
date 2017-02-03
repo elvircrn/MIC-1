@@ -22,9 +22,9 @@
 class Work_ab_latches_behavioral: public HSim__s6 {
 public:
 
-    HSim__s1 SE[5];
+    HSim__s1 SE[3];
 
-    HSim__s1 SA[2];
+    HSim__s1 SA[1];
     Work_ab_latches_behavioral(const char * name);
     ~Work_ab_latches_behavioral();
     void constructObject();

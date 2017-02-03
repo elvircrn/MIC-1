@@ -36,6 +36,7 @@ SIGNAL_ORDER_BEGIN
 /cpu_tb_vhd/uut/s_b_latch
 /cpu_tb_vhd/uut/p_mbr/mbr_latch
 /cpu_tb_vhd/uut/p_mar/mar_latch
+/cpu_tb_vhd/uut/p_registri/sp
 SIGNAL_ORDER_END
 DIFFERENTIAL_CLKS_BEGIN
 DIFFERENTIAL_CLKS_END
@@ -76,6 +77,9 @@ SIGPROPS_BEGIN
 2
 2
 /cpu_tb_vhd/uut/p_mar/mar_latch
+2
+2
+/cpu_tb_vhd/uut/p_registri/sp
 2
 2
 SIGPROPS_END

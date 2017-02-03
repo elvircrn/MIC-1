@@ -1,34 +1,34 @@
 V3 96
-FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/ab_latches.vhd 2017/02/03.07:11:12 J.36
-EN work/ab_latches 1486102287 \
+FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/ab_latches.vhd 2017/02/03.07:41:34 J.36
+EN work/ab_latches 1486104104 \
       FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/ab_latches.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/ab_latches/Behavioral 1486102288 \
+AR work/ab_latches/Behavioral 1486104105 \
       FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/ab_latches.vhd \
-      EN work/ab_latches 1486102287
+      EN work/ab_latches 1486104104
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/alu.vhd 2017/02/03.04:41:18 J.36
 EN work/ALU 1486093491 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/alu.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
 AR work/ALU/Behavioral 1486093492 \
       FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/alu.vhd EN work/ALU 1486093491
-FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd 2017/02/03.07:29:11 J.36
-EN work/cpu 1486103415 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd \
+FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd 2017/02/03.07:41:21 J.36
+EN work/cpu 1486104106 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/std_logic_arith 1179176985 \
       PB ieee/STD_LOGIC_UNSIGNED 1179176991
-AR work/cpu/Behavioral 1486103416 \
-      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd EN work/cpu 1486103415 \
+AR work/cpu/Behavioral 1486104107 \
+      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu.vhd EN work/cpu 1486104106 \
       CP distributer CP rom256x32 CP decoder CP alu CP shifter16 CP mseq CP oct2to1mux \
       CP hex2u1mux CP registri CP incrementer CP mircomp CP marcomp CP ab_latches \
       CP mbrcomp
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu_tb.vhd 2017/02/03.05:00:58 J.36
-EN work/cpu_tb_vhd 1486103417 \
+EN work/cpu_tb_vhd 1486104108 \
       FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu_tb.vhd \
       PB ieee/std_logic_1164 1179176983 PB ieee/STD_LOGIC_UNSIGNED 1179176991 \
       PB ieee/NUMERIC_STD 1179176997
-AR work/cpu_tb_vhd/behavior 1486103418 \
-      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu_tb.vhd EN work/cpu_tb_vhd 1486103417 \
+AR work/cpu_tb_vhd/behavior 1486104109 \
+      FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/cpu_tb.vhd EN work/cpu_tb_vhd 1486104108 \
       CP cpu
 FL C:/Users/Amar.B/Desktop/Kopija/80085/80085/decoder.vhd 2017/02/03.02:11:39 J.36
 EN work/decoder 1486093489 \
