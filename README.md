@@ -46,13 +46,13 @@ Kod iznad implementira MULD m instrukciju, pri cemu je ac := 3 na pocetku. Outpu
    85 => "00000000000110110001101100000000",
    86 => "00000000000100010001000100000000",
    87 => "01110010000110100000101001010011",
-   88 => "00010000000100010000101100000000",
+   88 => "00010000000100010000101100000000"
 ```
 koji se stavlja u ROM komponentu oglednog procesora. Ovaj skup instrukcija je uspjesno testiran na VHDL test benchu oglednog procesora.
 
 Limitacije:
-    * Konstante 1, -1 i 0 se obiljezavaju sa (+1), (0), (-1) respektivno
-    * Umjesto band koristiti ^ operator
+* Konstante 1, -1 i 0 se obiljezavaju sa (+1), (0), (-1) respektivno
+* Umjesto band koristiti ^ operator
 
 Kod je testiran sa 10ak drugih instrukcija, no autor je svjestan velike mogucnosti pojavljivanja bugova. Takodje je potrebno imati u vidu da je kod
 pisan u malom vremenskom periodu.
