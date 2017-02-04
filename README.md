@@ -33,6 +33,7 @@ Primjer koristenja:
 
 Kod iznad implementira MULD m instrukciju, pri cemu je ac := 3 na pocetku. Output ovog primjera je:
 
+```cpp
     1 => "00000000000100010000000100000000",
     2 => "00000000000100010000000100000000",
     3 => "00000000000100010000000100000000",
@@ -46,7 +47,7 @@ Kod iznad implementira MULD m instrukciju, pri cemu je ac := 3 na pocetku. Outpu
    86 => "00000000000100010001000100000000",
    87 => "01110010000110100000101001010011",
    88 => "00010000000100010000101100000000",
-
+```
 koji se stavlja u ROM komponentu oglednog procesora. Ovaj skup instrukcija je uspjesno testiran na VHDL test benchu oglednog procesora.
 
 Limitacije:
