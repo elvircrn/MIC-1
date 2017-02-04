@@ -13,9 +13,8 @@ entity registri is
 		a_bus : out std_logic_vector (15 downto 0);
 		b_bus : out std_logic_vector (15 downto 0);
 		c_bus : in std_logic_vector (15 downto 0);
-		s_a_decoded : in std_logic;
-		s_b_decoded : in std_logic;
-		s_c_decoded : in std_logic
+		s_t2 :in std_logic;
+		s_t4 :in std_logic
 	);
 end registri;
 
@@ -39,7 +38,7 @@ signal e : std_logic_vector (15 downto 0) := x"0000";
 signal f : std_logic_vector (15 downto 0) := x"0000";
 
 begin
-	process (s_a_decoded, s_b_decoded, s_c_decoded, reset)
+	process (s_t2, s_t4, reset)
 	begin
 	
 	-- reset
@@ -63,7 +62,7 @@ begin
 	end if;
 	
 		-- iz registra na sabirnicu
-		if(s_a_decoded'event) then 
+		if(s_t2'event and s_t2 = '1') then 
 			case a_adr is
 				when "0000000000000001" => a_bus <= pc;
 				when "0000000000000010" => a_bus <= ac;
@@ -83,9 +82,6 @@ begin
 				when "1000000000000000" => a_bus <= f;
 				when others => null;
 			end case;
-		end if;	
-		if(s_b_decoded'event) then
-			
 			case b_adr is
 				when "0000000000000001" => b_bus <= pc;
 				when "0000000000000010" => b_bus <= ac;
@@ -107,7 +103,7 @@ begin
 				--when others => b_bus <= "0000000000000001";
 			end case;
 		end if;
-		if (enc = '1' and s_c_decoded'event) then
+		if (enc = '1' and s_t4'event and s_t4 = '1') then
 			case c_adr is
 				when "0000000000000001" => pc <= c_bus;
 				when "0000000000000010" => ac <= c_bus;

@@ -27,22 +27,19 @@ use ieee.numeric_std.all;
 -- 4 to 16 bit decoder
 entity decoder is
 	port ( enc : in std_logic_vector(3 downto 0);
-			 en  : in std_logic; -- Enable signal
-			 dec : out std_logic_vector(15 downto 0);
-			 s_decoded : buffer std_logic
+			 en : in std_logic;
+			 dec : out std_logic_vector(15 downto 0)
 	);
 end decoder;
 
 architecture Behavioral of decoder is
 begin
-process(en, enc) 
+process(enc, en) 
 begin
-	if (en'event) then
+	if(en = '1') then
 		dec <= (others => '0');
 		dec(conv_integer(enc)) <= '1';
-		s_decoded <= s_decoded xor '1';
 	end if;
-
 end process;
 end Behavioral;
 

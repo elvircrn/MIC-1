@@ -35,15 +35,13 @@ entity mircomp is
 		s_mbr, s_mar, s_rd, s_wr, rd, wr, s_enc : out std_logic;
 		s_c, s_b, s_a : out std_logic_vector(3 downto 0);
 		s_mir_adresa : out std_logic_vector(7 downto 0);
-		s_t1 : in std_logic;
-		dec_en : out std_logic
+		s_t1 : in std_logic
 	);
 end mircomp;
 
 architecture Behavioral of mircomp is
 
 signal s_mir : std_logic_vector(31 downto 0);
-signal child : std_logic := '0';
 
 begin
 process (s_t1)
@@ -67,8 +65,6 @@ begin
 			s_a <= v_mir(11 downto 8);
 			s_mir_adresa <= v_mir(7 downto 0);
 			s_mir <= v_mir;
-			child <= child xor '1';
-			dec_en <= child;
 		end if;
 	end process;
 		

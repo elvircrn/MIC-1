@@ -2,52 +2,72 @@
    ./cpu_tb_vhd_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  54760
+     -ipcport  56756
 
-Fri Feb 03 23:39:09 2017
+Sat Feb 04 05:07:44 2017
 
-Total Line Count : 545
+Total Line Count : 530
 
- Elaboration time : 0.03125 sec.
+ Elaboration time : 0 sec.
 
- Estimate current memory usage : 155.636 Meg. 
+ Estimate current memory usage : 155.521 Meg. 
 
- Total Signals          : 170
- Total Nets             : 674
- Total Signal Drivers   : 68
+ Total Signals          : 158
+ Total Nets             : 671
+ Total Signal Drivers   : 65
  Total Blocks           : 24
  Total Primitive Blocks : 18
  Total Processes        : 19
  Total Traceable Variables  : 0
- Total Scalar Nets and Variables : 674
-ntrace select -o on -n /cpu_tb_vhd/clk 
-ntrace select -o on -n /cpu_tb_vhd/uut/s_rom_out 
+ Total Scalar Nets and Variables : 671
+ntrace select -o on -n /cpu_tb_vhd/uut/p_mpc/mpc_reg 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t1 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t2 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t3 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t4 
-ntrace select -o on -n /cpu_tb_vhd/uut/s_a_bus 
-ntrace select -o on -n /cpu_tb_vhd/uut/s_b_bus 
-ntrace select -o on -n /cpu_tb_vhd/uut/s_a_latch 
-ntrace select -o on -n /cpu_tb_vhd/uut/s_b_latch 
-ntrace select -o on -n /cpu_tb_vhd/uut/p_mbr/mbr_latch 
-ntrace select -o on -n /cpu_tb_vhd/uut/p_mar/mar_latch 
-ntrace select -o on -n /cpu_tb_vhd/uut/p_registri/sp 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_registri/ac 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_registri/a 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_registri/b 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/x1 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/x2 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/f0 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/f1 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/y0 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/z 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_mseq/cond 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_mseq/seq_out 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_mmux/x0 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_mmux/x1 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_mmux/y0 
 ntrace select -o on -n /cpu_tb_vhd/uut/p_mmux/c 
-ntrace select -o on -n /cpu_tb_vhd/uut/p_alu/x1 
-ntrace select -o on -n /cpu_tb_vhd/uut/s_a_decoded 
-ntrace select -o on -n /cpu_tb_vhd/uut/s_b_decoded 
-ntrace select -o on -n /cpu_tb_vhd/uut/s_c_decoded 
+ntrace select -o on -n /cpu_tb_vhd/uut/p_mbr/mbr_latch 
+ntrace select -o on -n /cpu_tb_vhd/uut/podaci 
+ntrace select -o on -n /cpu_tb_vhd/uut/s_rd 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.
-Finished circuit initialization process.
 WARNING:Simulator:29 - at 0 ns: Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an
    arithmetic operand, the result will be 'X'(es).
 WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
    'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
+   'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+Finished circuit initialization process.
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 
+isimrun 1000 ns 

@@ -29,9 +29,7 @@ SIGNAL_ORDER_BEGIN
 /cpu/podaci
 /cpu/rd
 /cpu/wr
-/cpu/s_mir_reg
 /cpu/s_rom_out
-/cpu/s_mir
 /cpu/s_t1
 /cpu/s_t2
 /cpu/s_t3
@@ -57,7 +55,6 @@ SIGNAL_ORDER_BEGIN
 /cpu/s_a_latch
 /cpu/s_b_latch
 /cpu/s_amux_out
-/cpu/s_mar_latch
 /cpu/s_mbr_latch
 /cpu/s_alu_out
 /cpu/s_z
@@ -89,13 +86,7 @@ SIGPROPS_BEGIN
 /cpu/wr
 2
 0
-/cpu/s_mir_reg
-2
-0
 /cpu/s_rom_out
-2
-0
-/cpu/s_mir
 2
 0
 /cpu/s_t1
@@ -171,9 +162,6 @@ SIGPROPS_BEGIN
 2
 0
 /cpu/s_amux_out
-2
-0
-/cpu/s_mar_latch
 2
 0
 /cpu/s_mbr_latch

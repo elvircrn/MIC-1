@@ -75,13 +75,13 @@ BEGIN
 	tb : PROCESS
 	BEGIN
 	
-	
 		-- Wait 100 ns for global reset to finish
 		wait for 100 ns;
-		
 		clk <= '0';
-			
-		for i in 0 to 99 loop
+		reset <= '1';
+		wait for 100 ns;
+		reset <= '0';
+		for i in 0 to 150 loop
 			wait for 100 ns;
 			clk <= clk xor '1';
 		end loop;
