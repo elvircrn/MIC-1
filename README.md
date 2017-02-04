@@ -29,6 +29,7 @@ Primjer koristenja:
 
     for (auto &instr : rets)
         std::cout << std::setw(5) << instr.first << " => \"" <<  parse(instr.second) << "\",\n";
+```
 
 Kod iznad implementira MULD m instrukciju, pri cemu je ac := 3 na pocetku. Output ovog primjera je:
 
