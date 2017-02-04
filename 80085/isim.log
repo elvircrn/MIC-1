@@ -2,24 +2,24 @@
    ./cpu_tb_vhd_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  50815
+     -ipcport  59131
 
-Sat Feb 04 16:28:34 2017
+Sat Feb 04 18:24:34 2017
 
 Total Line Count : 528
 
  Elaboration time : 0.015625 sec.
 
- Estimate current memory usage : 155.673 Meg. 
+ Estimate current memory usage : 156.094 Meg. 
 
  Total Signals          : 158
- Total Nets             : 671
+ Total Nets             : 663
  Total Signal Drivers   : 64
  Total Blocks           : 24
  Total Primitive Blocks : 18
  Total Processes        : 19
  Total Traceable Variables  : 0
- Total Scalar Nets and Variables : 671
+ Total Scalar Nets and Variables : 663
 ntrace select -o on -n /cpu_tb_vhd/uut/p_mpc/mpc_reg 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t1 
 ntrace select -o on -n /cpu_tb_vhd/uut/s_t2 
@@ -54,50 +54,3 @@ WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
 WARNING:Simulator:29 - at 0 ns: Warning: CONV_INTEGER: There is an
    'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 Finished circuit initialization process.
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 
-isimrun 1000 ns 

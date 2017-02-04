@@ -8,7 +8,7 @@ entity cpu is
              clk : in std_logic;
              reset : in std_logic;
              podaci : buffer std_logic_vector (15 downto 0);
-             adresa : out std_logic_vector (15 downto 0);
+             adresa : out std_logic_vector (11 downto 0);
              rd : out std_logic;
              wr : out std_logic
          );
@@ -135,7 +135,7 @@ component marcomp
 	port (
 		s_t3, s_mar : in std_logic;
 		s_b_latch : in std_logic_vector(15 downto 0);
-		adresa : out std_logic_vector (15 downto 0)
+		adresa : out std_logic_vector (11 downto 0)
 	);
 end component;
 
