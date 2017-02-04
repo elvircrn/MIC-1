@@ -1,38 +1,14 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    03:42:06 02/03/2017 
--- Design Name: 
--- Module Name:    mbrcomp - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
-
----- Uncomment the following library declaration if instantiating
----- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity mbrcomp is
 	port(
 		s_t : in std_logic;
 		s_c_bus : in std_logic_vector(15 downto 0);
 		s_mbr, s_rd, s_wr : in std_logic;
-		podaci : inout std_logic_vector(15 downto 0);
+		podaci : buffer std_logic_vector(15 downto 0);
 		s_mbr_latch_out : out std_logic_vector(15 downto 0)
 	);
 end mbrcomp;

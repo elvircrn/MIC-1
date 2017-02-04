@@ -47,6 +47,7 @@ SIGNAL_ORDER_BEGIN
 /cpu_tb_vhd/uut/p_mbr/mbr_latch
 /cpu_tb_vhd/uut/podaci
 /cpu_tb_vhd/uut/s_rd
+/cpu_tb_vhd/podaci
 SIGNAL_ORDER_END
 DIFFERENTIAL_CLKS_BEGIN
 DIFFERENTIAL_CLKS_END
@@ -120,6 +121,9 @@ SIGPROPS_BEGIN
 2
 2
 /cpu_tb_vhd/uut/s_rd
+2
+2
+/cpu_tb_vhd/podaci
 2
 2
 SIGPROPS_END

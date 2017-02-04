@@ -1,31 +1,3 @@
-
---------------------------------------------------------------------------------
--- Company: 
--- Engineer:
---
--- Create Date:   03:37:13 02/02/2017
--- Design Name:   cpu
--- Module Name:   C:/Users/elvircrn/Documents/codes2/80085/80085/cputest.vhd
--- Project Name:  80085
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: cpu
---
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends 
--- that these types always be used for the top-level I/O of a design in order 
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
---------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.all;
@@ -41,7 +13,7 @@ ARCHITECTURE behavior OF cputest_vhd IS
 	PORT(
 		clk : IN std_logic;
 		reset : IN std_logic;    
-		podaci : INOUT std_logic_vector(15 downto 0);      
+		podaci : buffer std_logic_vector(15 downto 0);      
 		adresa : OUT std_logic_vector(11 downto 0);
 		rd : OUT std_logic;
 		wr : OUT std_logic

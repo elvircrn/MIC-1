@@ -7,8 +7,8 @@ entity cpu is
     port (
              clk : in std_logic;
              reset : in std_logic;
+             podaci : buffer std_logic_vector (15 downto 0);
              adresa : out std_logic_vector (15 downto 0);
-             podaci : inout std_logic_vector (15 downto 0);
              rd : out std_logic;
              wr : out std_logic
          );
@@ -151,7 +151,7 @@ component mbrcomp
 		s_t : in std_logic;
 		s_c_bus : in std_logic_vector(15 downto 0);
 		s_mbr, s_rd, s_wr : in std_logic;
-		podaci : inout std_logic_vector(15 downto 0);
+		podaci : buffer std_logic_vector(15 downto 0);
 		s_mbr_latch_out : out std_logic_vector(15 downto 0)
 	);
 end component;
