@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1486228465 source:c:\users\elvircrn\documents\codes2\interpreter\interpreter\main.cpp
+	<iostream>
+	<string>
+	<cstring>
+	<vector>
+	<sstream>
+	<algorithm>
+	<regex>
+	<map>
+	<bitset>
+	<iomanip>
+
